@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>单片机工程实训 — 电231班注意事项总结</title>
+<style>
+  :root {
+    --primary: #1a365d;
+    --accent: #2b6cb0;
+    --danger: #c53030;
+    --warning: #d69e2e;
+    --success: #276749;
+    --bg: #f7fafc;
+    --card-bg: #ffffff;
+    --border: #e2e8f0;
+    --text: #2d3748;
+    --text-muted: #718096;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding: 0;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    padding: 48px 40px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .header h1 { font-size: 28px; margin-bottom: 8px; font-weight: 700; }
+  .header .subtitle { font-size: 16px; opacity: 0.85; margin-bottom: 16px; }
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin: 4px;
+  }
+
+  /* Alert */
+  .alert {
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin-bottom: 28px;
+    border-left: 4px solid;
+    font-size: 15px;
+  }
+  .alert-danger {
+    background: #fff5f5;
+    border-color: var(--danger);
+    color: #742a2a;
+  }
+  .alert-warning {
+    background: #fffff0;
+    border-color: var(--warning);
+    color: #744210;
+  }
+  .alert-success {
+    background: #f0fff4;
+    border-color: var(--success);
+    color: #22543d;
+  }
+  .alert h3 { margin-bottom: 8px; font-size: 17px; }
+
+  /* Card */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .card h2 {
+    font-size: 20px;
+    color: var(--primary);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h3 {
+    font-size: 16px;
+    color: var(--accent);
+    margin: 20px 0 10px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 20px;
+    font-size: 14px;
+  }
+  th {
+    background: var(--primary);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:nth-child(even) td { background: #f7fafc; }
+  tr:hover td { background: #edf2f7; }
+
+  /* Status tags */
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .tag-red { background: #fed7d7; color: #9b2c2c; }
+  .tag-orange { background: #feebc8; color: #7c2d12; }
+  .tag-green { background: #c6f6d5; color: #22543d; }
+  .tag-blue { background: #bee3f8; color: #2a4365; }
+
+  /* Checklist */
+  .checklist {
+    list-style: none;
+    padding: 0;
+  }
+  .checklist li {
+    padding: 8px 0 8px 32px;
+    position: relative;
+    border-bottom: 1px dashed var(--border);
+  }
+  .checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .checklist li.done::before { content: "☑"; color: var(--success); }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    margin: 16px 0;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--border);
+    border-radius: 2px;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    background: #f7fafc;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -24px;
+    top: 16px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .timeline-item.critical::before { background: var(--danger); box-shadow: 0 0 0 2px var(--danger); }
+  .timeline-item .date { font-weight: 700; color: var(--primary); font-size: 16px; }
+  .timeline-item .time { color: var(--text-muted); font-size: 13px; }
+  .timeline-item .desc { margin-top: 4px; }
+
+  /* Highlight */
+  .highlight {
+    background: linear-gradient(180deg, transparent 60%, #fefcbf 60%);
+    padding: 0 2px;
+  }
+
+  /* Two column */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 16px 0;
+  }
+  @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+
+  .score-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: #e2e8f0;
+    margin-top: 4px;
+    overflow: hidden;
+  }
+  .score-bar .fill {
+    height: 100%;
+    border-radius: 4px;
+    background: var(--accent);
+  }
+  .score-bar .fill.high { background: var(--danger); }
+  .score-bar .fill.mid { background: var(--warning); }
+  .score-bar .fill.low { background: var(--success); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1>单片机工程实训</h1>
+  <div class="subtitle">电231班 · 注意事项总结（仅交作业+答辩模式）</div>
+  <span class="badge">李晶老师</span>
+  <span class="badge">自动化专业 · 3学分</span>
+  <span class="badge">2026年7月6日–7月17日</span>
+</div>
+
+<!-- 与老师的聊天记录确认 -->
+<div class="alert alert-success">
+  <h3>老师已确认：因实习可免修课程</h3>
+  <p>根据7月2日与<strong>李晶老师</strong>的微信聊天记录：</p>
+  <table style="margin:8px 0;">
+    <tr><td style="width:80px;font-weight:600;">实习单位</td><td>三星中国电子研究院</td></tr>
+    <tr><td style="font-weight:600;">实习岗位</td><td>嵌入式软件开发（智能机器臂测试和辅助开发）</td></tr>
+    <tr><td style="font-weight:600;">实习时间</td><td>6月25日 - 8月31日（覆盖整个实训期）</td></tr>
+    <tr><td style="font-weight:600;">老师意见</td><td><strong style="color:#22543d;">「可以」</strong> — 已认可实习内容证明（含mentor签字和联系电话）</td></tr>
+  </table>
+  <p style="margin-top:8px;font-size:13px;color:#718096;">注意：老师原话「如果实习内容和嵌入式智能控制不相关可以不来，否则不可以」— 你的实习内容与专业相关，但老师审阅证明材料后仍批准了，说明老师认可这个安排。</p>
+</div>
+
+<!-- 同学提供的情报 -->
+<div class="alert alert-warning">
+  <h3>同学情报：验收和选题内幕</h3>
+  <p>根据7月2日与<strong>已修过该课的同学</strong>的聊天记录：</p>
+  <table style="margin:8px 0;">
+    <tr><td style="width:80px;font-weight:600;">验收方式</td><td>口头提问，关于程序内容，看电路图。同学说"还算水"——可能看一下电路图、老师看懂就过了</td></tr>
+    <tr><td style="font-weight:600;">提问形式</td><td><strong>按小组为单位</strong>提问，不是一个人一个人单独问</td></tr>
+    <tr><td style="font-weight:600;">选题规则</td><td><strong style="color:#744210;">自己选，但项目数量固定，先到先得！</strong></td></tr>
+    <tr><td style="font-weight:600;">答辩</td><td>也会问问题，形式和验收类似</td></tr>
+  </table>
+  <p style="margin-top:8px;font-size:13px;color:#744210;"><strong>行动建议：</strong>既然选题是先到先得，你和组员必须在7月6日第一天就抢到想要的题目。提前商量好第一志愿和第二志愿！</p>
+</div>
+
+<!-- 重要提醒 -->
+<div class="alert alert-danger">
+  <h3>虽然免修，但不可忽视</h3>
+  <p><strong>系统软硬件调试（成绩6，占30%）需要在老师面前现场演示验收</strong>，综合设计是3人小组完成的，你必须与小组保持紧密协作。实习期间请务必合理安排时间，<strong>提前与老师和组员沟通好分工</strong>。</p>
+</div>
+
+<!-- 关键日期 -->
+<div class="card">
+  <h2>必须到场的 4 个关键日期</h2>
+  <div class="timeline">
+    <div class="timeline-item critical">
+      <div class="date">7月10日（周五）</div>
+      <div class="time">下午 13:00–16:30 · 综721</div>
+      <div class="desc"><span class="tag tag-red">验收</span> 综合设计A验收 — 需现场向李晶老师演示调试结果</div>
+    </div>
+    <div class="timeline-item critical">
+      <div class="date">7月15日（周三）</div>
+      <div class="time">下午 13:00–16:30 · 综721</div>
+      <div class="desc"><span class="tag tag-red">交报告</span> 提交综合设计A报告 + 综合设计B实操</div>
+    </div>
+    <div class="timeline-item critical">
+      <div class="date">7月16日（周四）</div>
+      <div class="time">上午 9:00–11:30 · 综721</div>
+      <div class="desc"><span class="tag tag-red">验收</span> 综合设计B验收 — 需现场演示Proteus仿真结果</div>
+    </div>
+    <div class="timeline-item critical">
+      <div class="date">7月17日（周五）</div>
+      <div class="time">下午 13:30–14:30 · 综701</div>
+      <div class="desc"><span class="tag tag-red">答辩</span> 开卷答辩（个人独立完成，占34%）— 全课程最高分值</div>
+    </div>
+  </div>
+  <div class="alert alert-warning" style="margin-top:12px;">
+    <strong>建议到场：</strong>7月17日（周五）上午 9:00–11:30 综701 补验收/答疑 + 交综合设计B报告。<br>
+    <strong>第一天：</strong>7月6日（周一）全天 综701 理论培训 — 建议尽量到场，了解课程安排和分组情况。
+  </div>
+</div>
+
+<!-- 成绩组成 -->
+<div class="card">
+  <h2>成绩组成（9项，总分100%）</h2>
+  <table>
+    <thead>
+      <tr><th>#</th><th>成绩项</th><th>占比</th><th>形式</th><th>提交方式</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td><td>实训笔记</td>
+        <td>2%<div class="score-bar"><div class="fill low" style="width:2%"></div></div></td>
+        <td>练习本手写</td><td>记录上课内容+实验问题</td>
+      </tr>
+      <tr>
+        <td>2</td><td>基本实验报告</td>
+        <td>10%<div class="score-bar"><div class="fill low" style="width:10%"></div></div></td>
+        <td><strong>手写</strong>，按模板</td><td>提交纸质版</td>
+      </tr>
+      <tr>
+        <td>3</td><td>硬件原理图（手绘）</td>
+        <td>4%<div class="score-bar"><div class="fill low" style="width:4%"></div></div></td>
+        <td>A4纸手绘</td><td>附在综合报告中</td>
+      </tr>
+      <tr>
+        <td>4</td><td>程序流程图</td>
+        <td>4%<div class="score-bar"><div class="fill low" style="width:4%"></div></div></td>
+        <td>标准流程图符号</td><td>附在综合报告中</td>
+      </tr>
+      <tr>
+        <td>5</td><td>程序清单</td>
+        <td>4%<div class="score-bar"><div class="fill low" style="width:4%"></div></div></td>
+        <td>源代码</td><td>附在综合报告中</td>
+      </tr>
+      <tr>
+        <td>6</td><td>系统软硬件调试</td>
+        <td>30%<div class="score-bar"><div class="fill high" style="width:30%"></div></div></td>
+        <td><strong>现场验收</strong></td><td>A验收(7/10) + B验收(7/16)</td>
+      </tr>
+      <tr>
+        <td>7</td><td>开卷答辩</td>
+        <td>34%<div class="score-bar"><div class="fill high" style="width:34%"></div></div></td>
+        <td><strong>个人独立</strong></td><td>7/17 下午</td>
+      </tr>
+      <tr>
+        <td>8</td><td>综合报告</td>
+        <td>10%<div class="score-bar"><div class="fill low" style="width:10%"></div></div></td>
+        <td>A4纸打印/手写</td><td>A报告(7/15) + B报告(7/17)</td>
+      </tr>
+      <tr>
+        <td>9</td><td>实验纪律</td>
+        <td>2%<div class="score-bar"><div class="fill low" style="width:2%"></div></div></td>
+        <td>不迟到早退</td><td>—</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="alert alert-danger" style="margin-top:16px;">
+    <strong>核心发现：</strong>成绩6（调试30%）+ 成绩7（答辩34%）= <strong>64%</strong>，这两项决定了你是否能及格。必须认真准备！
+  </div>
+</div>
+
+<!-- 提交物清单 -->
+<div class="card">
+  <h2>你需要提交的全部材料清单</h2>
+  <div class="two-col">
+    <div>
+      <h3>个人独立完成</h3>
+      <ul class="checklist">
+        <li>实训笔记本（练习本）</li>
+        <li>基本实验报告（手写）</li>
+        <li>开卷答辩（7/17现场）</li>
+      </ul>
+    </div>
+    <div>
+      <h3>小组合作完成（3人）</h3>
+      <ul class="checklist">
+        <li>综合设计A报告（7/15交）</li>
+        <li>综合设计B报告（7/17交）</li>
+        <li>手绘硬件原理图</li>
+        <li>程序流程图</li>
+        <li>程序清单</li>
+        <li>系统调试演示（现场验收）</li>
+      </ul>
+    </div>
+  </div>
+  <div class="alert alert-warning">
+    <strong>综合设计报告格式：</strong>正文宋体小四/22磅行距/首行缩进2字符，标题1黑体三号，标题2宋体四号加粗。图注宋体五号居中，表注宋体五号居中。统一A4纸。
+  </div>
+</div>
+
+<!-- 综合设计选题 -->
+<div class="card">
+  <h2>综合设计选题（需与小组商定 · 先到先得！）</h2>
+  <div class="alert alert-warning" style="margin-bottom:16px;font-size:14px;">
+    <strong>选题规则：</strong>自己选，但每个题目项目数量固定，<strong>先到先得</strong>。7月6日第一天就要抢！提前和组员商量好第一志愿和第二志愿。
+  </div>
+  <div class="two-col">
+    <div>
+      <h3>综合设计A（五选一·实物实验板）</h3>
+      <table>
+        <tr><td>P-A-1#</td><td>温湿度检测系统设计</td></tr>
+        <tr><td>P-A-2#</td><td>光控系统设计</td></tr>
+        <tr><td>P-A-3#</td><td>温度记录器设计</td></tr>
+        <tr><td>P-A-4#</td><td>电子时钟系统设计</td></tr>
+        <tr><td>P-A-5#</td><td>超声波测距系统设计</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>综合设计B（六选一·Proteus仿真）</h3>
+      <table>
+        <tr><td>P-B-1#</td><td>温湿度检测系统</td></tr>
+        <tr><td>P-B-2#</td><td>小车控制系统</td></tr>
+        <tr><td>P-B-3#</td><td>智慧家居系统</td></tr>
+        <tr><td>P-B-4#</td><td>炉温控制系统</td></tr>
+        <tr><td>P-B-5#</td><td>智能交通灯控制系统</td></tr>
+        <tr><td>P-B-6#</td><td>智能门禁系统</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 注意事项 -->
+<div class="card">
+  <h2>针对你情况的特别注意事项</h2>
+
+  <h3>1. 关于"不上课"的10个现实问题</h3>
+  <table>
+    <thead>
+      <tr><th style="width:30px">#</th><th>问题</th><th>建议</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>实训笔记怎么写？</td>
+        <td>找同学借笔记参考，或自己根据任务书自学后整理。至少要有基本框架和问题记录。</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>基本实验报告（手写）怎么做？</td>
+        <td>共24个实验（2个语言实验+15个接口实验+7个传感实验），需要自己在家用Proteus仿真完成，手写报告。</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>实验板怎么用？</td>
+        <td>综合设计A需要在实物实验板上完成，无法在家做。必须和小组协调时间去实验室。</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>3人小组怎么分工？</td>
+        <td>尽早联系组员，主动承担可以在家完成的部分（如程序设计、流程图、报告撰写），实物调试部分协商时间去实验室。</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>综合设计A验收必须到场吗？</td>
+        <td><strong>必须。</strong>调试结束后要请老师检查，占30%。</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>综合设计B可以远程做吗？</td>
+        <td>可以。B类用Proteus仿真，在家安装软件即可。但验收仍需到场。</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>答辩怎么准备？</td>
+        <td>开卷答辩，个人独立完成，34%。需熟悉自己做的A和B两个综合设计的所有细节。</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>实验纪律分（2%）怎么办？</td>
+        <td>既然和老师说好了，这2%可能拿不到或拿不全，但影响不大。</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>AI辅助开发能用吗？</td>
+        <td>可以，综合设计B有专门的AI驱动开发指导。但必须遵守AI五原则，留存对话记录，禁止直接复制粘贴。</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>需要装什么软件？</td>
+        <td>Keil C51（编译）、STC-ISP（烧录）、Proteus（仿真）、VS Code（可选）。建议提前装好并熟悉。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>2. 综合设计报告结构（必须包含）</h3>
+  <ol style="padding-left:20px; margin:8px 0;">
+    <li>封皮（参见云班课）</li>
+    <li>目录页</li>
+    <li>一、综合设计任务</li>
+    <li>二、系统硬件设计（硬件框图 → 详细设计 → 仿真图 → 手绘原理图）</li>
+    <li>三、系统软件设计（流程图 → IO口地址计算 → 源程序清单）</li>
+    <li>四、调试（设备介绍+照片、调试过程+照片、问题及解决方法）</li>
+    <li>五、经济分析</li>
+    <li>六、总结（每位同学独立写）</li>
+  </ol>
+
+  <h3>3. AI使用五原则（综合设计B）</h3>
+  <ol style="padding-left:20px; margin:8px 0;">
+    <li><strong>先思考后提问</strong> — 先自己查资料思考10分钟</li>
+    <li><strong>具体化提问</strong> — 包含芯片型号、已有代码、现象、已尝试方法</li>
+    <li><strong>验证与批判</strong> — 对照数据手册验证AI建议</li>
+    <li><strong>留存对话记录</strong> — 截图或导出作为过程考核依据</li>
+    <li><strong>禁止行为</strong> — 禁止直接复制粘贴AI生成内容</li>
+  </ol>
+</div>
+
+<!-- 完整日程 -->
+<div class="card">
+  <h2>电23-1班完整日程表</h2>
+  <table>
+    <thead>
+      <tr><th>日期</th><th>星期</th><th>时间</th><th>地点</th><th>内容</th><th>重要性</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>7/6</td><td>一</td><td>全天 9:00-16:30</td><td>综701</td><td>理论培训/计划安排</td><td><span class="tag tag-orange">建议到场</span></td></tr>
+      <tr><td>7/7</td><td>二</td><td>下午 13:00-16:30</td><td>综721</td><td>综合设计A</td><td><span class="tag tag-blue">可自修</span></td></tr>
+      <tr><td>7/8</td><td>三</td><td>上午 9:00-11:30</td><td>综721</td><td>综合设计A</td><td><span class="tag tag-blue">可自修</span></td></tr>
+      <tr><td>7/9</td><td>四</td><td>全天 9:00-16:30</td><td>综701</td><td>综合设计A</td><td><span class="tag tag-blue">可自修</span></td></tr>
+      <tr style="background:#fff5f5;"><td>7/10</td><td>五</td><td>下午 13:00-16:30</td><td>综721</td><td><strong>综合设计A验收</strong></td><td><span class="tag tag-red">必须到场</span></td></tr>
+      <tr><td>7/13</td><td>一</td><td>上午 9:00-11:30</td><td>综721</td><td>综合设计B</td><td><span class="tag tag-blue">可自修</span></td></tr>
+      <tr><td>7/14</td><td>二</td><td>全天 9:00-16:30</td><td>综701</td><td>综合设计B</td><td><span class="tag tag-blue">可自修</span></td></tr>
+      <tr style="background:#fff5f5;"><td>7/15</td><td>三</td><td>下午 13:00-16:30</td><td>综721</td><td><strong>综合设计B + 交A报告</strong></td><td><span class="tag tag-red">必须到场</span></td></tr>
+      <tr style="background:#fff5f5;"><td>7/16</td><td>四</td><td>上午 9:00-11:30</td><td>综721</td><td><strong>综合设计B验收</strong></td><td><span class="tag tag-red">必须到场</span></td></tr>
+      <tr><td>7/17</td><td>五</td><td>上午 9:00-11:30</td><td>综701</td><td>补验收/答疑 + 交B报告</td><td><span class="tag tag-orange">建议到场</span></td></tr>
+      <tr style="background:#fff5f5;"><td>7/17</td><td>五</td><td>下午 13:30-14:30</td><td>综701</td><td><strong>答辩</strong></td><td><span class="tag tag-red">必须到场</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 最后提醒 -->
+<div class="alert alert-danger">
+  <h3>最后的最后：4件必须做的事</h3>
+  <ol style="padding-left:20px; line-height:2.2;">
+    <li><strong>立刻联系组员</strong> — 综合设计是3人小组，尽早确定选题和分工，否则你无法完成验收。</li>
+    <li><strong>提前装好软件</strong> — Keil C51 + STC-ISP + Proteus，在家先把基本实验做起来。</li>
+    <li><strong>和老师确认</strong> — 再次和李晶老师确认你的"只交作业+答辩"安排，确保老师认可。</li>
+    <li><strong>别忘答辩</strong> — 7月17日下午13:30综701，占34%，是整个课程最高分值。</li>
+  </ol>
+</div>
+
+<!-- 知识库 -->
+<div class="card" style="background: linear-gradient(135deg, #ebf4ff, #f0fff4);">
+  <h2>RAG向量知识库已就绪</h2>
+  <p>课程全部内容已构建为ChromaDB向量知识库，存储在 <code>/workspace/rag_knowledge_base/</code>，包含115个文档块。</p>
+  <p style="margin-top:8px;">查询方式：</p>
+  <pre style="background:#1a202c;color:#e2e8f0;padding:12px;border-radius:6px;margin:8px 0;">cd /workspace/rag_knowledge_base
+python query.py "你的问题"</pre>
+  <p style="font-size:13px;color:var(--text-muted);">例如：<code>python query.py "答辩时间"</code>、<code>python query.py "综合设计A题目"</code>、<code>python query.py "报告格式"</code></p>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,369 @@
+{
+  "title": "单片机工程实训任务书",
+  "version": "2.0测试版",
+  "authors": [
+    "李晶",
+    "马苗立",
+    "邱科鹏"
+  ],
+  "parts": [
+    {
+      "part_num": 1,
+      "title": "单片机原理及预备实验",
+      "start_page": 1,
+      "chapters": [
+        {
+          "chapter_num": 1,
+          "title": "单片机原理",
+          "start_page": 2,
+          "sections": []
+        },
+        {
+          "chapter_num": 2,
+          "title": "预备实验",
+          "start_page": 3,
+          "sections": [
+            {
+              "num": "2.1",
+              "title": "试验箱认知与基础操作",
+              "start_page": 3
+            },
+            {
+              "num": "2.2",
+              "title": "Proteus基本操作与51单片机最小系统仿真搭建",
+              "start_page": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part_num": 2,
+      "title": "单片机基本实验",
+      "start_page": 4,
+      "chapters": [
+        {
+          "chapter_num": 3,
+          "title": "基本语言实验",
+          "start_page": 5,
+          "sections": [
+            {
+              "num": "3.1",
+              "title": "工具使用&数据移动",
+              "start_page": 5
+            },
+            {
+              "num": "3.2",
+              "title": "数据运算&进制转换",
+              "start_page": 6
+            }
+          ]
+        },
+        {
+          "chapter_num": 4,
+          "title": "基本接口实验",
+          "start_page": 8,
+          "sections": [
+            {
+              "num": "4.1",
+              "title": "开关与LED显示",
+              "start_page": 8
+            },
+            {
+              "num": "4.2",
+              "title": "逻辑电平开关控制器",
+              "start_page": 10
+            },
+            {
+              "num": "4.3",
+              "title": "中断系统",
+              "start_page": 11
+            },
+            {
+              "num": "4.4",
+              "title": "定时器",
+              "start_page": 12
+            },
+            {
+              "num": "4.5",
+              "title": "双外部中断优先级",
+              "start_page": 13
+            },
+            {
+              "num": "4.6",
+              "title": "数码管",
+              "start_page": 13
+            },
+            {
+              "num": "4.7",
+              "title": "独立按钮",
+              "start_page": 15
+            },
+            {
+              "num": "4.8",
+              "title": "矩阵键盘",
+              "start_page": 16
+            },
+            {
+              "num": "4.9",
+              "title": "模数转换",
+              "start_page": 18
+            },
+            {
+              "num": "4.10",
+              "title": "数模转换",
+              "start_page": 19
+            },
+            {
+              "num": "4.11",
+              "title": "LCD1602字符液晶显示",
+              "start_page": 20
+            },
+            {
+              "num": "4.12",
+              "title": "LCD12864汉字图形液晶显示",
+              "start_page": 24
+            },
+            {
+              "num": "4.13",
+              "title": "16x64点阵显示",
+              "start_page": 24
+            },
+            {
+              "num": "4.14",
+              "title": "蜂鸣器控制",
+              "start_page": 25
+            },
+            {
+              "num": "4.15",
+              "title": "PWM控制",
+              "start_page": 26
+            }
+          ]
+        },
+        {
+          "chapter_num": 5,
+          "title": "基本传感实验",
+          "start_page": 28,
+          "sections": [
+            {
+              "num": "5.1",
+              "title": "串口通信",
+              "start_page": 28
+            },
+            {
+              "num": "5.2",
+              "title": "实时时钟DS1302",
+              "start_page": 29
+            },
+            {
+              "num": "5.3",
+              "title": "温度传感器DS18B20",
+              "start_page": 32
+            },
+            {
+              "num": "5.4",
+              "title": "温湿度传感器DHT11",
+              "start_page": 33
+            },
+            {
+              "num": "5.5",
+              "title": "继电器控制",
+              "start_page": 34
+            },
+            {
+              "num": "5.6",
+              "title": "电机控制",
+              "start_page": 36
+            },
+            {
+              "num": "5.7",
+              "title": "AT24C02存储器",
+              "start_page": 38
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part_num": 3,
+      "title": "单片机综合设计",
+      "start_page": 7,
+      "chapters": [
+        {
+          "chapter_num": 6,
+          "title": "单片机综合设计A",
+          "start_page": 41,
+          "sections": [
+            {
+              "num": "6.1",
+              "title": "实验目的",
+              "start_page": 41
+            },
+            {
+              "num": "6.2",
+              "title": "实验设备",
+              "start_page": 41
+            },
+            {
+              "num": "6.3",
+              "title": "实验内容(五选一)",
+              "start_page": 41
+            },
+            {
+              "num": "6.4",
+              "title": "实验要求",
+              "start_page": 43
+            },
+            {
+              "num": "6.5",
+              "title": "设计方法",
+              "start_page": 43
+            }
+          ]
+        },
+        {
+          "chapter_num": 7,
+          "title": "单片机综合设计B",
+          "start_page": 45,
+          "sections": [
+            {
+              "num": "7.1",
+              "title": "实验目的",
+              "start_page": 45
+            },
+            {
+              "num": "7.2",
+              "title": "实验设备",
+              "start_page": 45
+            },
+            {
+              "num": "7.3",
+              "title": "实验内容(六选一)",
+              "start_page": 45
+            },
+            {
+              "num": "7.4",
+              "title": "实验要求",
+              "start_page": 50
+            },
+            {
+              "num": "7.5",
+              "title": "单片机工程实训综合设计B：AI驱动项目开发实训指导书",
+              "start_page": 51
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part_num": 4,
+      "title": "技术资料及附录",
+      "start_page": 23,
+      "chapters": [
+        {
+          "chapter_num": 8,
+          "title": "实验系统介绍",
+          "start_page": 57,
+          "sections": [
+            {
+              "num": "8.1",
+              "title": "TEG-1_C51单片机实验系统",
+              "start_page": 57
+            },
+            {
+              "num": "8.2",
+              "title": "单片机实验板",
+              "start_page": 58
+            },
+            {
+              "num": "8.3",
+              "title": "读懂硬件原理图",
+              "start_page": 60
+            }
+          ]
+        },
+        {
+          "chapter_num": 9,
+          "title": "软件工具使用指南",
+          "start_page": 61,
+          "sections": [
+            {
+              "num": "9.1",
+              "title": "项目管理方式",
+              "start_page": 61
+            },
+            {
+              "num": "9.2",
+              "title": "Keil C51软件",
+              "start_page": 62
+            },
+            {
+              "num": "9.3",
+              "title": "STC-ISP烧录软件",
+              "start_page": 72
+            },
+            {
+              "num": "9.4",
+              "title": "Proteus仿真软件",
+              "start_page": 78
+            },
+            {
+              "num": "9.5",
+              "title": "Visual Studio Code",
+              "start_page": 107
+            }
+          ]
+        },
+        {
+          "chapter_num": 10,
+          "title": "C51简明教程",
+          "start_page": 108,
+          "sections": []
+        },
+        {
+          "chapter_num": 11,
+          "title": "实验报告模板及要求",
+          "start_page": 109,
+          "sections": [
+            {
+              "num": "11.1",
+              "title": "实验报告撰写工具",
+              "start_page": 109
+            },
+            {
+              "num": "11.2",
+              "title": "预备实验记录表1：试验箱认知与基础操作",
+              "start_page": 109
+            },
+            {
+              "num": "11.3",
+              "title": "预备实验记录表2：Proteus基本操作与51单片机最小系统仿真搭建",
+              "start_page": 112
+            },
+            {
+              "num": "11.4",
+              "title": "基本实验报告模板",
+              "start_page": 113
+            },
+            {
+              "num": "11.5",
+              "title": "综合设计报告模板",
+              "start_page": 114
+            },
+            {
+              "num": "11.6",
+              "title": "综合设计报告格式要求",
+              "start_page": 114
+            },
+            {
+              "num": "11.7",
+              "title": "流程图绘制工具",
+              "start_page": 114
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

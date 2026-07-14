@@ -136,6 +136,21 @@ summary = system.end_session_with_reflection()
 
 **边的关系类型**：`uses_chip`, `depends_on`, `has_pin`, `connects_to`, `uses_protocol`, `has_teacher`, `has_class` 等。
 
+### 课程设计覆盖情况
+
+| 课题 | 源码 | 硬件文档 | 设计文档 | Agent 可独立完成 |
+|------|:----:|:--------:|:--------:|:----------------:|
+| P-A-1# 温湿度检测 | ✅ C51 | ✅ 完整 | ✅ | ✅ 是 |
+| P-A-2# 电子钟 | ❌ | ❌ | ❌ | ❌ 仅有框架 |
+| P-A-3# 多传感器采集 | ✅ C51+SDCC | ⚠️ 部分 | ✅ | ✅ 是 (SDCC) |
+| P-A-4# 智能交通灯 | ❌ | ❌ | ❌ | ❌ 仅有框架 |
+| P-A-5# | ❌ | ❌ | ❌ | ❌ 无内容 |
+| P-B-1~P-B-4 | ❌ | ❌ | ❌ | ❌ 无内容 |
+| P-B-5# 智能交通灯 | ❌ | ❌ | ✅ 7篇 | ⚠️ 可参考文档 |
+| P-B-6# | ❌ | ❌ | ❌ | ❌ 无内容 |
+
+> **注意**：目前仅 P-A-1# 和 P-A-3# 两个课题有完整源码和硬件文档，Agent 可直接接手。其他课题的代码需要 Agent 参考已有项目的模式自行编写。`hardware_ref_pa1.md` 的硬件文档格式可作为其他课题的模板。
+
 ---
 
 ## 系统架构
@@ -272,7 +287,7 @@ mcu-course-knowledge-base/
 │   │   ├── common/                    # 公共驱动库 (adc0809, dht11, display, i8255, led, uart)
 │   │   ├── diagnostics/               # 9 个分步诊断程序
 │   │   ├── pa1_main/                  # 主程序 (Keil uVision 工程)
-│   │   └── step03~step09/             # 7 个渐进式学习步骤
+│   │   └── step03~step09/             # 6 个渐进式学习步骤 (step08不存在)
 │   ├── P-A-3工程/                      # P-A-3# 多传感器数据采集系统
 │   │   ├── P-A-3_审查报告.md           # 项目审查报告
 │   │   ├── common/                    # 驱动库 (ds18b20, pcf8591, display, led, uart)
@@ -301,12 +316,24 @@ mcu-course-knowledge-base/
 │   └── audit/                         # 2 份 HTML 审计报告
 │       ├── pb5-full-audit/            # P-B-5 完整审计报告
 │       └── pa1-report-gap-analysis/   # P-A-1 报告差距分析
+│   └── agent_b_data/                  # Agent B 分析流程中间数据
+│       ├── agent_b_chapter_tree.json  # 章节树结构
+│       ├── agent_b_figures.json       # 图表提取数据
+│       ├── agent_b_tables.json        # 表格提取数据
+│       └── agent_b_crosspage.json     # 跨页引用数据
 │
 ├── course_docs/                       # 课程文档
 │   ├── 知识库结构README.pdf            # 知识库结构说明
+│   ├── 单片机工程实训_注意事项总结.html  # 实训注意事项
 │   ├── 任务书/                         # 课程任务书
-│   ├── 参考模板/                       # 实验报告模板 (5份 docx + 1份 md)
+│   ├── 参考模板/                       # 实验报告模板 (5份 docx + 2份 md)
+│   ├── 实验报告/                       # P-A-1 实验报告 (初版/修改版/最终版)
 │   └── 原理图/                         # CT107D 实验板原理图
+│
+├── assets/                            # 源码压缩包
+│   ├── P-A-1-源码_发给同学.zip         # P-A-1 温湿度检测系统源码包
+│   ├── P-A-3工程_完整代码.zip          # P-A-3 工程完整代码包
+│   └── 接口技术综合实验A原理图_参考.zip  # 实验板原理图参考
 │
 └── rag_archive/                       # RAG 演进历史
     ├── rag_v2/                        # v2: 关键词 + 向量检索
