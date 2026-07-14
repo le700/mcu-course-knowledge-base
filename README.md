@@ -1,17 +1,38 @@
-# 单片机程序设计课程知识库
+# MCU Course Knowledge Base
 
-> **北京石油化工学院 · 2023级 · 电气工程及其自动化 / 自动化专业** — 单片机程序设计实践课程知识库
->
-> **Agent-First 知识库** — 一份仓库，喂给任何 AI 编程智能体即可直接接手单片机课程设计
+> 克隆即用：让 AI 编程智能体直接接手单片机课程设计。无需上下文，零学习成本。
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-71%2F71%20Passed-brightgreen.svg)](octopus_hub/test_e2e.py)
+[![Tests](https://img.shields.io/badge/Tests-71/71-brightgreen.svg)](octopus_hub/test_e2e.py)
+[![Knowledge Graph](https://img.shields.io/badge/KG-123_nodes_205_edges-blue.svg)](rag_v4/knowledge_graph.json)
 [![Agent-Ready](https://img.shields.io/badge/Agent-Ready-brightgreen.svg)]()
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
 
-## 课程信息
+## 目录
+
+- [What is this?](#what-is-this)
+- [Quick Start (for AI Agents)](#quick-start-for-ai-agents)
+- [Supported AI Coding Agents](#supported-ai-coding-agents)
+- [Knowledge Graph](#knowledge-graph)
+- [课程设计覆盖情况](#课程设计覆盖情况)
+- [System Architecture](#system-architecture)
+- [Module Reference](#module-reference)
+- [Project Structure](#project-structure)
+- [Design Philosophy](#design-philosophy)
+- [Tech Stack](#tech-stack)
+- [Contributors](#contributors)
+
+---
+
+## What is this?
+
+**The Problem** — 单片机课程设计要求学生掌握芯片引脚、传感器协议、电路连接、代码框架等大量细节。AI 编程智能体（Trae WorkBuddy、Claude Code、Codex 等）可以辅助开发，但它们缺少课程特定的硬件知识，每次对话都要重新灌输上下文，效率极低。
+
+**The Solution** — 这个仓库是一个 **Agent-First 知识库**。它把芯片引脚表、传感器手册、电路连接、代码模板、设计依赖链全部以结构化格式（JSON + Markdown）存放在仓库里。任何能读 Git 仓库的 AI 编程智能体，克隆后就能直接查阅和使用，无需额外上下文。
+
+**一句话**：`git clone` → 开始干活。
 
 | 项目 | 内容 |
 |------|------|
@@ -23,54 +44,21 @@
 
 ---
 
-## 这个仓库是干什么的？
+## Quick Start (for AI Agents)
 
-**一句话：克隆这个仓库到你的 AI 编程智能体（Trae WorkBuddy / Claude Code / Codex / OpenClaw / Cursor 等）的工作区，它就能直接开始干活。**
+**如果你是一个 AI 编程智能体，请按以下步骤操作：**
 
-仓库里包含了单片机课程设计所需的全部知识——芯片引脚、传感器手册、电路连接、代码模板、设计依赖链，全部以结构化格式存放，AI 智能体无需额外上下文就能直接查阅和使用。
-
----
-
-## 支持的 AI 编程智能体
-
-| 智能体 | 使用方式 |
-|--------|----------|
-| **Trae WorkBuddy** | 直接克隆到工作区，Agent 读取 `rag_v4/` 和 `octopus_hub/` 即可 |
-| **Claude Code** | `git clone` 后，Claude 自动索引项目文件作为上下文 |
-| **OpenAI Codex CLI** | 克隆后，Codex 可直接读取 `knowledge_graph.json` 和 `hardware_ref_pa1.md` |
-| **OpenClaw** | 作为知识基座，所有 Agent 通过 OctopusHub 共享记忆 |
-| **Cursor** | 直接打开仓库文件夹，Cursor 会自动索引所有代码和文档 |
-| **GitHub Copilot** | 仓库中的结构化知识文件可直接被 Copilot 引用 |
-| **Windsurf / Cody** | 支持仓库级上下文索引，自动加载知识图谱 |
-
-> **通用原则**：只要你的 AI 编程工具能读 Git 仓库，它就能用这个知识库。Agent 不需要提前"知道"单片机——它只需要能读 `knowledge_graph.json` 和 `hardware_ref_pa1.md`。
-
----
-
-## Agent 使用指南（写给 AI 智能体看）
-
-**如果你是一个 AI 编程智能体（如 Trae WorkBuddy、Claude Code、Codex 等），请按以下步骤使用本仓库：**
-
-### 1. 克隆仓库
+### Step 1 — Clone
 
 ```bash
 git clone https://github.com/le700/mcu-course-knowledge-base.git
 cd mcu-course-knowledge-base
 ```
 
-### 2. 了解仓库结构
-
-本仓库有两个核心目录：
-
-| 目录 | 用途 | 你该怎么做 |
-|------|------|-----------|
-| `rag_v4/` | 静态知识库（知识图谱 + 硬件文档 + 检索工具） | **直接读取** `knowledge_graph.json` 和 `hardware_ref_pa1.md` |
-| `octopus_hub/` | 动态记忆系统（项目管理 + 会话记忆 + 反思引擎） | **安装依赖后运行**，管理多项目上下文 |
-
-### 3. 直接读取知识（最快方式，无需安装任何依赖）
+### Step 2 — 读取知识（零依赖，最快方式）
 
 ```bash
-# 知识图谱：119 个节点、199 条边，覆盖芯片/传感器/协议/课程设计
+# 知识图谱：123 个节点、205 条边，覆盖芯片/传感器/协议/课程设计
 cat rag_v4/knowledge_graph.json
 
 # 硬件参考：P-A-1# 温湿度检测系统的完整硬件文档
@@ -78,21 +66,28 @@ cat rag_v4/hardware_ref_pa1.md
 ```
 
 这两个文件是纯 JSON 和 Markdown，任何 Agent 都能直接解析。读完你就知道：
+
 - 有哪些芯片可用（AT89C51、STC89C52、ATmega16 等）
 - 每个芯片的引脚功能、封装、接线方式
 - 各课程设计之间的依赖关系
 - 温湿度检测系统的完整硬件架构
 
-### 4. 启动记忆中枢（可选，需要 Python 3.10+）
+### Step 3 — 查看项目源码
+
+```bash
+ls projects/
+# P-A-1源码参考/     — P-A-1# 温湿度检测系统 (C51 源码 + 13 个分步诊断)
+# P-A-3工程/         — P-A-3# 多传感器数据采集 (C51 + SDCC 双版本)
+# P-B-4#炉温控制系统/ — P-B-4# 炉温控制系统 (PID+PWM 闭环控制, 5 阶段文档)
+# P-B-5汇总/         — P-B-5# 智能交通灯 (7 篇设计文档)
+```
+
+### Step 4 — 启动记忆中枢（可选，需要 Python 3.10+）
 
 ```bash
 pip install -r requirements.txt --break-system-packages
-
-# 运行端到端测试确认环境正常
 cd octopus_hub && python test_e2e.py
 ```
-
-然后你就可以通过 Python API 使用完整的记忆系统：
 
 ```python
 from octopus_hub import OctopusSystem
@@ -112,9 +107,7 @@ print(system.query("温湿度检测系统的设计依赖链"))
 print(system.query("DHT11快速参考"))
 ```
 
-### 5. 多智能体协作模式
-
-如果你需要多个 Agent 协作完成同一个课程设计：
+### Step 5 — 多智能体协作
 
 ```python
 # Agent A 注册项目并开始会话
@@ -126,7 +119,6 @@ system.add_memory("选择共阳极数码管，P0口段选，P2口位选")
 
 # Agent B 通过交接协议接手，获取完整上下文
 context = system.handoff(target_agent="Agent B", depth="standard")
-# Agent B 现在拥有 Agent A 的所有关键决策和上下文
 
 # 会话结束时自动反思
 summary = system.end_session_with_reflection()
@@ -134,9 +126,25 @@ summary = system.end_session_with_reflection()
 
 ---
 
-## 知识图谱速览
+## Supported AI Coding Agents
 
-`rag_v4/knowledge_graph.json` — **119 节点、199 条边**，Agent 可以直接解析 JSON 获取：
+| Agent | 使用方式 |
+|--------|----------|
+| **Trae WorkBuddy** | 直接克隆到工作区，Agent 读取 `rag_v4/` 和 `octopus_hub/` |
+| **Claude Code** | `git clone` 后，Claude 自动索引项目文件作为上下文 |
+| **OpenAI Codex CLI** | 克隆后，Codex 可直接读取 `knowledge_graph.json` 和 `hardware_ref_pa1.md` |
+| **OpenClaw** | 作为知识基座，所有 Agent 通过 OctopusHub 共享记忆 |
+| **Cursor** | 直接打开仓库文件夹，Cursor 自动索引所有代码和文档 |
+| **GitHub Copilot** | 仓库中的结构化知识文件可直接被 Copilot 引用 |
+| **Windsurf / Cody** | 支持仓库级上下文索引，自动加载知识图谱 |
+
+> **通用原则**：只要你的 AI 编程工具能读 Git 仓库，它就能用这个知识库。Agent 不需要提前"知道"单片机——它只需要能读 `knowledge_graph.json` 和 `hardware_ref_pa1.md`。
+
+---
+
+## Knowledge Graph
+
+`rag_v4/knowledge_graph.json` — **123 节点、205 条边**，Agent 直接解析 JSON 即可检索。
 
 | 类别 | 内容 | 节点数 |
 |------|------|--------|
@@ -144,30 +152,33 @@ summary = system.end_session_with_reflection()
 | 传感器 | DHT11, DHT22, DS18B20, BMP180, HC-SR04, MQ-2 等 | 12+ |
 | 显示模块 | LCD1602, LCD12864, OLED, 数码管, 点阵屏 | 8+ |
 | 通信协议 | I2C, SPI, UART, 1-Wire, RS485 | 5+ |
-| 课程设计 | 温湿度检测、智能交通灯、超声波测距、数字钟、电子琴等 | 10+ |
-| 编程概念 | 定时器、中断、PWM、ADC、看门狗、EEPROM 等 | 15+ |
+| 课程设计 | 温湿度检测、炉温控制、智能交通灯、数字钟、电子琴等 | 10+ |
+| 编程概念 | 定时器、中断、PID、PWM、ADC、看门狗、EEPROM 等 | 15+ |
 | 引脚表 | 每个芯片的完整引脚功能表 | 7 |
 
-**边的关系类型**：`uses_chip`, `depends_on`, `has_pin`, `connects_to`, `uses_protocol`, `has_teacher`, `has_class` 等。
+**关系类型**：`uses_chip`, `depends_on`, `has_pin`, `connects_to`, `uses_protocol`, `requires_peripheral`, `based_on_experiment`, `uses_concept`, `has_teacher`, `has_class` 等。
 
-### 课程设计覆盖情况
+---
+
+## 课程设计覆盖情况
 
 | 课题 | 源码 | 硬件文档 | 设计文档 | Agent 可独立完成 |
 |------|:----:|:--------:|:--------:|:----------------:|
 | P-A-1# 温湿度检测 | ✅ C51 | ✅ 完整 | ✅ | ✅ 是 |
-| P-A-2# 炉温控制系统 | ✅ C51 | ✅ 原理图 | ✅ 5阶段 | ✅ 是 |
+| P-A-2# 光控系统 | ❌ | ❌ | ❌ | ❌ 仅有框架 |
 | P-A-3# 多传感器采集 | ✅ C51+SDCC | ⚠️ 部分 | ✅ | ✅ 是 (SDCC) |
 | P-A-4# 智能交通灯 | ❌ | ❌ | ❌ | ❌ 仅有框架 |
 | P-A-5# | ❌ | ❌ | ❌ | ❌ 无内容 |
-| P-B-1~P-B-4 | ❌ | ❌ | ❌ | ❌ 无内容 |
+| P-B-1~P-B-3 | ❌ | ❌ | ❌ | ❌ 无内容 |
+| P-B-4# 炉温控制系统 | ✅ C51 | ✅ 原理图 | ✅ 5阶段 | ✅ 是 |
 | P-B-5# 智能交通灯 | ❌ | ❌ | ✅ 7篇 | ⚠️ 可参考文档 |
 | P-B-6# | ❌ | ❌ | ❌ | ❌ 无内容 |
 
-> **注意**：目前 P-A-1#、P-A-2#炉温控制系统 和 P-A-3# 三个课题有完整源码和文档，Agent 可直接接手。`hardware_ref_pa1.md` 和 P-A-2# 的 5 阶段文档格式可作为其他课题的模板。
+> **3 个课题 Agent 可直接接手**：P-A-1# 温湿度检测、P-B-4# 炉温控制系统、P-A-3# 多传感器采集。`hardware_ref_pa1.md` 和 P-B-4# 的 5 阶段文档格式可作为其他课题的模板。
 
 ---
 
-## 系统架构
+## System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -210,113 +221,113 @@ summary = system.end_session_with_reflection()
 │   │          RAG v4 (知识库底座)              │       │
 │   │  ┌──────────┐ ┌──────────┐ ┌─────────┐  │       │
 │   │  │ 知识图谱  │ │ 向量检索  │ │关键词检索│  │       │
-│   │  │119节点    │ │ChromaDB  │ │TF-IDF   │  │       │
-│   │  │199边     │ │          │ │         │  │       │
+│   │  │123节点    │ │ChromaDB  │ │TF-IDF   │  │       │
+│   │  │205边     │ │          │ │         │  │       │
 │   │  └──────────┘ └──────────┘ └─────────┘  │       │
 │   └─────────────────────────────────────────┘       │
 └─────────────────────────────────────────────────────┘
 ```
 
-### 反思闭环
+### Reflection Loop
 
 ```
-记忆存储 → 会话结束 → 自动反思触发
-    ↑                      ↓
-    └── 规则提取 + TF-IDF   → 关键决策/错误/洞察
-        去重后存入向量数据库
+Memory Storage → Session End → Auto-Trigger Reflection
+    ↑                              ↓
+    └── Rule Extraction + TF-IDF → Key Decisions / Errors / Insights
+        Deduplicated → Vector DB
 ```
 
 ---
 
-## 模块详解
+## Module Reference
 
-### 八爪鱼记忆中枢 (`octopus_hub/`)
+### Octopus Hub (`octopus_hub/`)
 
-| 模块 | 文件 | 功能 |
-|------|------|------|
-| **数据模型** | `models.py` | 4 个数据类：Project, Persona, MemoryFragment, Session；2 个枚举：MemoryType (7 种), SessionStatus (4 种) |
-| **存储层** | `storage.py` | SQLite 持久化存储，4 张表 (projects, personas, memories, sessions)，支持 JSON 字段和高级查询 |
-| **核心中枢** | `core.py` | OctopusHub 类：项目/会话/记忆/人格管理 API |
-| **知识图谱适配器** | `kg_adapter.py` | 加载 knowledge_graph.json，BFS 遍历，设计依赖链分析，芯片引脚查询 |
-| **桥接层** | `hub_bridge.py` | 统一查询路由：芯片→KG/硬件文档，设计→依赖链，通用→RAG；LRU 缓存 |
-| **硬件解析器** | `hardware_parser.py` | 解析 hardware_ref_pa1.md，提取 11 个芯片的结构化数据，28 条快速参考 |
-| **独立硬件解析器** | `hw_parser.py` | 备用硬件解析器，支持扩展芯片查询 |
-| **向量语义搜索** | `memory_vector_store.py` | SentenceTransformer (384维) + ChromaDB，去重 (余弦相似度>0.85)，KMeans 聚类 |
-| **反思引擎** | `reflection.py` | 规则提取 (30+ 中文模式) + TF-IDF 关键句提取 + 自动触发循环 |
-| **交接协议** | `handoff.py` | 3 级深度：minimal (~50 tokens), standard (~500), full (~1500) |
-| **集成层** | `integration.py` | OctopusSystem 统一入口，一站式会话 + 反思 |
-| **命令行** | `cli.py` | 10 个 CLI 命令：init, project, session, memory, stats |
-| **端到端测试** | `test_e2e.py` | 71 个测试用例，覆盖全部 10 个模块 |
+| Module | File | Description |
+|--------|------|-------------|
+| **Data Models** | `models.py` | 4 dataclasses (Project, Persona, MemoryFragment, Session); 2 enums (MemoryType × 7, SessionStatus × 4) |
+| **Storage** | `storage.py` | SQLite persistence, 4 tables, JSON fields, advanced queries |
+| **Core** | `core.py` | OctopusHub: project/session/memory/persona management API |
+| **KG Adapter** | `kg_adapter.py` | Knowledge graph loader, BFS traversal, dependency chain analysis, chip pinout queries |
+| **Bridge** | `hub_bridge.py` | Unified query router: chip→KG/hardware, design→dependency chain, general→RAG; LRU cache |
+| **Hardware Parser** | `hardware_parser.py` | Parses `hardware_ref_pa1.md`, extracts 11 chip structures, 28 quick references |
+| **HW Parser** | `hw_parser.py` | Standalone hardware parser, extensible chip queries |
+| **Vector Store** | `memory_vector_store.py` | SentenceTransformer (384d) + ChromaDB, dedup (cosine > 0.85), KMeans clustering |
+| **Reflection** | `reflection.py` | 30+ Chinese regex patterns + TF-IDF key sentence extraction + auto-trigger loop |
+| **Handoff** | `handoff.py` | 3 depth levels: minimal (~50 tokens), standard (~500), full (~1500) |
+| **Integration** | `integration.py` | OctopusSystem unified entry, one-shot session + reflection |
+| **CLI** | `cli.py` | 10 commands: init, project, session, memory, stats |
+| **Tests** | `test_e2e.py` | 71 test cases covering all 10 modules |
 
-### RAG v4 知识库 (`rag_v4/`) — Agent 直接读取
+### RAG v4 (`rag_v4/`) — Agent 直接读取
 
-| 文件 | 格式 | Agent 如何使用 |
-|------|------|---------------|
-| `knowledge_graph.json` | JSON | 直接解析，BFS/DFS 遍历查询芯片、传感器、依赖关系 |
-| `hardware_ref_pa1.md` | Markdown | 直接读取，包含温湿度检测系统的完整硬件文档 |
-| `agent_tools.py` | Python | 提供三层检索 API：向量检索 + 关键词检索 + 结构化查询 |
-| `chunks.pkl` | Pickle | 预处理的文本块，供向量检索使用 |
-| `keyword_index.pkl` | Pickle | TF-IDF 关键词索引 |
-| `struct_index.json` | JSON | 结构化数据索引 |
+| File | Format | Usage |
+|------|--------|-------|
+| `knowledge_graph.json` | JSON | Direct parse, BFS/DFS traversal for chips, sensors, dependencies |
+| `hardware_ref_pa1.md` | Markdown | Complete hardware doc for P-A-1# temp/humidity detection |
+| `agent_tools.py` | Python | 3-layer retrieval API: vector + keyword + structured query |
+| `chunks.pkl` | Pickle | Preprocessed text chunks for vector retrieval |
+| `keyword_index.pkl` | Pickle | TF-IDF keyword index |
+| `struct_index.json` | JSON | Structured data index |
 
 ---
 
-## 项目结构
+## Project Structure
 
 ```
 mcu-course-knowledge-base/
-├── README.md                          # 本文件（Agent 使用指南）
-├── requirements.txt                   # Python 依赖
-├── .gitignore                         # Git 忽略规则
-├── build_fusion_rerank.py             # 知识图谱融合重排构建脚本
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── build_fusion_rerank.py
 │
-├── octopus_hub/                       # 八爪鱼记忆中枢
-│   ├── __init__.py                    # 包入口，优雅降级导入
-│   ├── models.py                      # 数据模型 (Project, Persona, Memory, Session)
-│   ├── storage.py                     # SQLite 存储层 (4 表)
-│   ├── core.py                        # 中枢核心 (OctopusHub)
-│   ├── kg_adapter.py                  # 知识图谱适配器 (BFS, 依赖链)
-│   ├── hub_bridge.py                  # 桥接层 (统一查询路由)
-│   ├── hardware_parser.py             # 硬件文档解析器 (11 芯片)
-│   ├── hw_parser.py                   # 独立硬件解析器 (备用)
-│   ├── memory_vector_store.py         # 向量语义搜索 (ChromaDB)
-│   ├── reflection.py                  # 反思引擎 (规则 + TF-IDF)
-│   ├── handoff.py                     # 交接协议 (3 级深度)
-│   ├── integration.py                 # 集成层 (OctopusSystem)
-│   ├── cli.py                         # 命令行工具 (10 个命令)
-│   └── test_e2e.py                    # 端到端测试 (71 用例)
+├── octopus_hub/                       # 八爪鱼记忆中枢 (12 modules, 71 tests)
+│   ├── __init__.py
+│   ├── models.py                      # Data models
+│   ├── storage.py                     # SQLite storage
+│   ├── core.py                        # OctopusHub core
+│   ├── kg_adapter.py                  # Knowledge graph adapter
+│   ├── hub_bridge.py                  # Unified query bridge
+│   ├── hardware_parser.py             # Hardware doc parser (11 chips)
+│   ├── hw_parser.py                   # Standalone HW parser
+│   ├── memory_vector_store.py         # Vector semantic search
+│   ├── reflection.py                  # Reflection engine
+│   ├── handoff.py                     # Handoff protocol
+│   ├── integration.py                 # Integration layer
+│   ├── cli.py                         # CLI tools
+│   └── test_e2e.py                    # E2E tests (71 cases)
 │
-├── rag_v4/                            # RAG v4 知识库（Agent 直接读取）
-│   ├── knowledge_graph.json           # 知识图谱 (119 节点, 199 边)
-│   ├── hardware_ref_pa1.md            # 硬件参考文档
-│   ├── agent_tools.py                 # RAG 检索引擎
-│   ├── chunks.pkl                     # 文本块
-│   ├── keyword_index.pkl              # 关键词索引
-│   ├── struct_index.json              # 结构化索引
-│   └── test_rag.py                    # RAG 测试
+├── rag_v4/                            # Knowledge base (Agent reads directly)
+│   ├── knowledge_graph.json           # 123 nodes, 205 edges
+│   ├── hardware_ref_pa1.md            # Hardware reference
+│   ├── agent_tools.py                 # RAG engine
+│   ├── chunks.pkl
+│   ├── keyword_index.pkl
+│   ├── struct_index.json
+│   └── test_rag.py
 │
-├── projects/                          # 课程设计项目（Agent 直接参考）
-│   ├── P-A-1源码参考/                  # P-A-1# 温湿度检测系统 (C源码 + 分步诊断)
-│   │   ├── 00_源码说明_先看我.txt       # 源码阅读指南
-│   │   ├── P-A-1-Codex参考_README.md   # 项目完整参考文档
-│   │   ├── common/                    # 公共驱动库 (adc0809, dht11, display, i8255, led, uart)
-│   │   ├── diagnostics/               # 13 个分步诊断程序
-│   │   ├── pa1_main/                  # 主程序 (Keil uVision 工程)
-│   │   └── step03~step09/             # 6 个渐进式学习步骤 (step08不存在)
-│   ├── P-A-3工程/                      # P-A-3# 多传感器数据采集系统
-│   │   ├── P-A-3_审查报告.md           # 项目审查报告
-│   │   ├── common/                    # 驱动库 (ds18b20, pcf8591, display, led, uart)
-│   │   ├── pa3_main/                  # 主程序 (Keil uVision 工程)
-│   │   └── sdcc/                      # SDCC 编译版本 (含 Makefile)
-│   ├── P-A-2#炉温控制系统/              # 炉温控制系统 (PID+PWM 闭环控制)
-│   │   ├── main.c                     # 完整 C51 源代码
-│   │   ├── 阶段1-项目需求规格说明书.md   # 7 大功能需求 + 性能/接口需求
-│   │   ├── 阶段2-硬件设计说明及硬件原理图.md # 完整硬件电路设计
-│   │   ├── 阶段3-软件流程图.md         # 程序流程图
-│   │   ├── 阶段4-源代码及代码审查报告.md  # 源码 + 代码审查
-│   │   ├── 阶段5-Bug调试日志.md        # 5 天联调记录 (12 个 Bug)
-│   │   └── images/                    # 硬件原理图 + 软件流程图
-│   └── P-B-5汇总/                      # P-B-5# 智能交通灯设计文档
+├── projects/                          # Course design projects
+│   ├── P-A-1源码参考/                  # P-A-1# 温湿度检测 (C51 + 13 diagnostics)
+│   │   ├── 00_源码说明_先看我.txt
+│   │   ├── P-A-1-Codex参考_README.md
+│   │   ├── common/                    # Driver libs (adc0809, dht11, display, i8255, led, uart)
+│   │   ├── diagnostics/               # 13 step-by-step diagnostics
+│   │   ├── pa1_main/                  # Main program (Keil uVision)
+│   │   └── step03~step09/             # 6 progressive learning steps
+│   ├── P-A-3工程/                      # P-A-3# 多传感器采集 (C51 + SDCC)
+│   │   ├── P-A-3_审查报告.md
+│   │   ├── common/                    # Driver libs (ds18b20, pcf8591, display, led, uart)
+│   │   ├── pa3_main/                  # Main program (Keil uVision)
+│   │   └── sdcc/                      # SDCC build (with Makefile)
+│   ├── P-B-4#炉温控制系统/              # P-B-4# 炉温控制 (PID+PWM closed-loop)
+│   │   ├── main.c                     # Complete C51 source
+│   │   ├── 阶段1-项目需求规格说明书.md
+│   │   ├── 阶段2-硬件设计说明及硬件原理图.md
+│   │   ├── 阶段3-软件流程图.md
+│   │   ├── 阶段4-源代码及代码审查报告.md
+│   │   ├── 阶段5-Bug调试日志.md        # 5-day debug log (12 bugs)
+│   │   └── images/
+│   └── P-B-5汇总/                      # P-B-5# 智能交通灯 (7 design docs)
 │       ├── 01_项目需求规格说明书.md
 │       ├── 02_硬件设计说明文档.md
 │       ├── 03_代码审查报告.md
@@ -326,83 +337,71 @@ mcu-course-knowledge-base/
 │       ├── 07_软件流程图_mermaid.md
 │       └── 程序流程图.html
 │
-├── reports/                           # 分析报告和审计报告
-│   ├── analysis/                      # 13 篇深度分析报告
-│   │   ├── gap_analysis.md            # 差距分析
-│   │   ├── state_machine_analysis.md  # 状态机分析
-│   │   ├── performance_math.md        # 性能数学建模
-│   │   ├── hardware_pin_verify.md     # 硬件引脚验证
-│   │   ├── acceptance_check.md        # 验收检查
-│   │   ├── requirement_check.md       # 需求检查
-│   │   ├── full_cross_validation.md   # 全交叉验证
-│   │   └── deep_check_*.md            # 第2章深度检查 (4篇)
-│   └── audit/                         # 2 份 HTML 审计报告
-│       ├── pb5-full-audit/            # P-B-5 完整审计报告
-│       └── pa1-report-gap-analysis/   # P-A-1 报告差距分析
-│   └── agent_b_data/                  # Agent B 分析流程中间数据
-│       ├── agent_b_chapter_tree.json  # 章节树结构
-│       ├── agent_b_figures.json       # 图表提取数据
-│       ├── agent_b_tables.json        # 表格提取数据
-│       └── agent_b_crosspage.json     # 跨页引用数据
+├── reports/                           # Analysis & audit reports
+│   ├── analysis/                      # 13 deep analysis reports
+│   ├── audit/                         # 2 HTML audit reports
+│   └── agent_b_data/                  # Agent B intermediate data
 │
-├── course_docs/                       # 课程文档
-│   ├── 知识库结构README.pdf            # 知识库结构说明
-│   ├── 单片机工程实训_注意事项总结.html  # 实训注意事项
-│   ├── 任务书/                         # 课程任务书
-│   ├── 参考模板/                       # 实验报告模板 (5份 docx + 1份 md)
-│   ├── 实验报告/                       # P-A-1 实验报告 (初版/修改版/最终版)
-│   └── 原理图/                         # CT107D 实验板原理图
+├── course_docs/                       # Course documents
+│   ├── 任务书/
+│   ├── 参考模板/                       # Report templates (5 docx + 1 md)
+│   ├── 实验报告/
+│   └── 原理图/                         # CT107D board schematics
 │
-├── assets/                            # 源码压缩包
-│   ├── P-A-1-源码_发给同学.zip         # P-A-1 温湿度检测系统源码包
-│   ├── P-A-3工程_完整代码.zip          # P-A-3 工程完整代码包
-│   └── 接口技术综合实验A原理图_参考.zip  # 实验板原理图参考
+├── assets/                            # Source code archives
+│   ├── P-A-1-源码_发给同学.zip
+│   ├── P-A-3工程_完整代码.zip
+│   └── 接口技术综合实验A原理图_参考.zip
 │
-└── rag_archive/                       # RAG 演进历史
-    ├── rag_v2/                        # v2: 关键词 + 向量检索
-    ├── rag_v3/                        # v3: 三层检索 + 结构化索引
-    └── rag_knowledge_base/            # v1: 原始知识库
+└── rag_archive/                       # RAG evolution history
+    ├── rag_v1/
+    ├── rag_v2/
+    └── rag_v3/
 ```
 
 ---
 
-## 设计理念
+## Design Philosophy
 
-### 为什么叫"八爪鱼"？
+### Why "Octopus"?
 
-八爪鱼（Octopus）的每条触手都有独立的神经系统，但所有触手都连接到同一个中枢大脑。这正是本系统的设计哲学：
+八爪鱼（Octopus）的每条触手都有独立的神经系统，但所有触手都连接到同一个中枢大脑：
 
-- **触手 = Agent**：每个 Agent 独立工作，处理特定领域任务
-- **中枢 = Hub**：所有 Agent 通过 Hub 进行上下文交接，无需重复传递历史
-- **记忆 = 神经网络**：关键决策和错误被提炼、压缩、存档，供后续 Agent 调用
+- **触手 = Agent** — 每个 Agent 独立工作，处理特定领域任务
+- **中枢 = Hub** — 所有 Agent 通过 Hub 进行上下文交接，无需重复传递历史
+- **记忆 = 神经网络** — 关键决策和错误被提炼、压缩、存档，供后续 Agent 调用
 
-### 为什么不用本地大模型？
+### Why No Local LLM?
 
-为避免浪费 token 和降低部署门槛，本系统使用 **SentenceTransformer + TF-IDF + ChromaDB** 替代本地 LLM：
+本系统使用 **SentenceTransformer + TF-IDF + ChromaDB** 替代本地 LLM，原因：
 
-- **语义搜索**: all-MiniLM-L6-v2 (384维) 提供向量相似度搜索
-- **关键词提取**: TF-IDF + jieba 分词实现关键句提取
-- **规则引擎**: 30+ 中文模式匹配实现反思提取
+- **零 GPU 依赖** — 普通 CPU 即可运行，部署门槛极低
+- **零 Token 浪费** — 语义搜索和反思提取全部本地完成，不消耗 API 配额
+- **确定性推理** — 规则引擎 + 向量检索，结果可复现、可调试
 
-无需 GPU，普通 CPU 即可运行。
+| Component | Technology | Purpose |
+|-----------|-----------|---------|
+| Semantic Search | all-MiniLM-L6-v2 (384d) | Vector similarity search |
+| Keyword Extraction | TF-IDF + jieba | Key sentence extraction |
+| Rule Engine | 30+ Chinese regex patterns | Reflection pattern matching |
 
 ---
 
-## 技术栈
+## Tech Stack
 
-| 技术 | 用途 |
+| Technology | Purpose |
 |------|------|
-| **Python 3.10+** | 主语言 |
-| **SQLite** | 持久化存储 |
-| **SentenceTransformer** | 向量语义编码 (all-MiniLM-L6-v2) |
-| **ChromaDB** | 向量数据库 |
-| **scikit-learn** | TF-IDF, KMeans 聚类 |
-| **jieba** | 中文分词 |
-| **JSON / Markdown** | Agent 可直接读取的知识格式 |
+| **Python 3.10+** | Core language |
+| **SQLite** | Persistent storage |
+| **SentenceTransformer** | Vector encoding (all-MiniLM-L6-v2) |
+| **ChromaDB** | Vector database |
+| **scikit-learn** | TF-IDF, KMeans clustering |
+| **jieba** | Chinese word segmentation |
+| **JSON / Markdown** | Agent-readable knowledge format |
 
 ---
 
-## 贡献者
+## Contributors
 
 - **组员A** — 架构设计 & 全栈开发
 - **组长** — 课程设计协调
@@ -412,10 +411,10 @@ mcu-course-knowledge-base/
 
 ---
 
-## 许可证
+## License
 
 MIT License
 
 ---
 
-*Made with ❤️ for MCU Course Design · 2024-2025 学年*
+*Made for MCU Course Design at BIPT · 2024-2025*
