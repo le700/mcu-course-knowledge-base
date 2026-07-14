@@ -1,11 +1,25 @@
 # 单片机程序设计课程知识库
 
+> **北京石油化工学院 · 2023级 · 电气工程及其自动化 / 自动化专业** — 单片机程序设计实践课程知识库
+>
 > **Agent-First 知识库** — 一份仓库，喂给任何 AI 编程智能体即可直接接手单片机课程设计
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/Tests-71%2F71%20Passed-brightgreen.svg)](octopus_hub/test_e2e.py)
 [![Agent-Ready](https://img.shields.io/badge/Agent-Ready-brightgreen.svg)]()
+
+---
+
+## 课程信息
+
+| 项目 | 内容 |
+|------|------|
+| **学校** | 北京石油化工学院 (BIPT) |
+| **年级** | 2023级 |
+| **专业** | 电气工程及其自动化 / 自动化 |
+| **课程** | 单片机程序设计实践 |
+| **课程性质** | 工程实训 / 综合设计 |
 
 ---
 
