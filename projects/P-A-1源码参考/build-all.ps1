@@ -19,7 +19,7 @@ foreach ($project in $projects) {
     & (Join-Path $PSScriptRoot 'build-project.ps1') -Project $project
 }
 
-$buildTool = 'C:\Users\28011\Documents\Codex\2026-07-03\new-chat\outputs\keil-proteus-automation\scripts\Build-C51.ps1'
+$buildTool = 'C:\Users\user\Documents\Codex\2026-07-03\new-chat\outputs\keil-proteus-automation\scripts\Build-C51.ps1'
 $diagnostics = @(
     @{
         Name = 'diag_dht11_display'
