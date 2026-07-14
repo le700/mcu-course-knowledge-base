@@ -438,6 +438,9 @@ class KnowledgeGraphAdapter:
             "dht11": "dht11_pins",
             "stc89c54rd": "hw_board1",
             "stc89c54rd+": "hw_board1",
+            "ds18b20": "equip_DS18B20",
+            "lcd1602": "equip_LCD1602",
+            "at24c02": "equip_AT24C02",
         }
 
         # 先尝试精确映射

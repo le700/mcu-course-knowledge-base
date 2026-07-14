@@ -944,6 +944,32 @@
       "label": "某班级",
       "institution": "某高校信息工程学院自动化系",
       "course": "单片机工程实训"
+    },
+    {
+      "id": "concept_PID",
+      "type": "concept",
+      "label": "PID控制算法",
+      "description": "比例-积分-微分闭环控制算法，用于炉温等需要精确控制的场景",
+      "related_chips": ["AT89C51", "STC89C52"]
+    },
+    {
+      "id": "concept_PWM",
+      "type": "concept",
+      "label": "PWM脉宽调制",
+      "description": "通过定时器生成可调占空比的方波信号，用于加热器功率控制、电机调速等",
+      "related_chips": ["AT89C51", "STC89C52"]
+    },
+    {
+      "id": "concept_声光报警",
+      "type": "concept",
+      "label": "声光报警",
+      "description": "蜂鸣器+LED组合的超限报警机制，用于温度/电压等参数超出阈值时提醒"
+    },
+    {
+      "id": "concept_数字滤波",
+      "type": "concept",
+      "label": "数字滤波",
+      "description": "中位值平均滤波、滑动平均等软件滤波算法，用于消除传感器采样噪声"
     }
   ],
   "edges": [
@@ -1951,6 +1977,36 @@
       "source": "teacher_placeholder",
       "target": "class_placeholder",
       "relation": "teaches"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "peripheral_蜂鸣器",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "peripheral_矩阵键盘",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "concept_PID",
+      "relation": "uses_concept"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "concept_PWM",
+      "relation": "uses_concept"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "concept_声光报警",
+      "relation": "uses_concept"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "concept_数字滤波",
+      "relation": "uses_concept"
     }
   ]
 }

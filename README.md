@@ -146,7 +146,7 @@ summary = system.end_session_with_reflection()
 | 通信协议 | I2C, SPI, UART, 1-Wire, RS485 | 5+ |
 | 课程设计 | 温湿度检测、智能交通灯、超声波测距、数字钟、电子琴等 | 10+ |
 | 编程概念 | 定时器、中断、PWM、ADC、看门狗、EEPROM 等 | 15+ |
-| 引脚表 | 每个芯片的完整引脚功能表 | 11 |
+| 引脚表 | 每个芯片的完整引脚功能表 | 7 |
 
 **边的关系类型**：`uses_chip`, `depends_on`, `has_pin`, `connects_to`, `uses_protocol`, `has_teacher`, `has_class` 等。
 
@@ -155,8 +155,7 @@ summary = system.end_session_with_reflection()
 | 课题 | 源码 | 硬件文档 | 设计文档 | Agent 可独立完成 |
 |------|:----:|:--------:|:--------:|:----------------:|
 | P-A-1# 温湿度检测 | ✅ C51 | ✅ 完整 | ✅ | ✅ 是 |
-| P-A-2# 电子钟 | ❌ | ❌ | ❌ | ❌ 仅有框架 |
-| 炉温控制系统 | ✅ C51 | ✅ 原理图 | ✅ 5阶段 | ✅ 是 |
+| P-A-2# 炉温控制系统 | ✅ C51 | ✅ 原理图 | ✅ 5阶段 | ✅ 是 |
 | P-A-3# 多传感器采集 | ✅ C51+SDCC | ⚠️ 部分 | ✅ | ✅ 是 (SDCC) |
 | P-A-4# 智能交通灯 | ❌ | ❌ | ❌ | ❌ 仅有框架 |
 | P-A-5# | ❌ | ❌ | ❌ | ❌ 无内容 |
@@ -164,7 +163,7 @@ summary = system.end_session_with_reflection()
 | P-B-5# 智能交通灯 | ❌ | ❌ | ✅ 7篇 | ⚠️ 可参考文档 |
 | P-B-6# | ❌ | ❌ | ❌ | ❌ 无内容 |
 
-> **注意**：目前 P-A-1#、P-A-3# 和炉温控制系统三个课题有完整源码和文档，Agent 可直接接手。`hardware_ref_pa1.md` 和炉温控制系统的 5 阶段文档格式可作为其他课题的模板。
+> **注意**：目前 P-A-1#、P-A-2#炉温控制系统 和 P-A-3# 三个课题有完整源码和文档，Agent 可直接接手。`hardware_ref_pa1.md` 和 P-A-2# 的 5 阶段文档格式可作为其他课题的模板。
 
 ---
 
@@ -241,6 +240,7 @@ summary = system.end_session_with_reflection()
 | **知识图谱适配器** | `kg_adapter.py` | 加载 knowledge_graph.json，BFS 遍历，设计依赖链分析，芯片引脚查询 |
 | **桥接层** | `hub_bridge.py` | 统一查询路由：芯片→KG/硬件文档，设计→依赖链，通用→RAG；LRU 缓存 |
 | **硬件解析器** | `hardware_parser.py` | 解析 hardware_ref_pa1.md，提取 11 个芯片的结构化数据，28 条快速参考 |
+| **独立硬件解析器** | `hw_parser.py` | 备用硬件解析器，支持扩展芯片查询 |
 | **向量语义搜索** | `memory_vector_store.py` | SentenceTransformer (384维) + ChromaDB，去重 (余弦相似度>0.85)，KMeans 聚类 |
 | **反思引擎** | `reflection.py` | 规则提取 (30+ 中文模式) + TF-IDF 关键句提取 + 自动触发循环 |
 | **交接协议** | `handoff.py` | 3 级深度：minimal (~50 tokens), standard (~500), full (~1500) |
@@ -300,7 +300,7 @@ mcu-course-knowledge-base/
 │   │   ├── 00_源码说明_先看我.txt       # 源码阅读指南
 │   │   ├── P-A-1-Codex参考_README.md   # 项目完整参考文档
 │   │   ├── common/                    # 公共驱动库 (adc0809, dht11, display, i8255, led, uart)
-│   │   ├── diagnostics/               # 9 个分步诊断程序
+│   │   ├── diagnostics/               # 13 个分步诊断程序
 │   │   ├── pa1_main/                  # 主程序 (Keil uVision 工程)
 │   │   └── step03~step09/             # 6 个渐进式学习步骤 (step08不存在)
 │   ├── P-A-3工程/                      # P-A-3# 多传感器数据采集系统
@@ -308,7 +308,7 @@ mcu-course-knowledge-base/
 │   │   ├── common/                    # 驱动库 (ds18b20, pcf8591, display, led, uart)
 │   │   ├── pa3_main/                  # 主程序 (Keil uVision 工程)
 │   │   └── sdcc/                      # SDCC 编译版本 (含 Makefile)
-│   ├── 炉温控制系统/                    # 炉温控制系统 (PID+PWM 闭环控制)
+│   ├── P-A-2#炉温控制系统/              # 炉温控制系统 (PID+PWM 闭环控制)
 │   │   ├── main.c                     # 完整 C51 源代码
 │   │   ├── 阶段1-项目需求规格说明书.md   # 7 大功能需求 + 性能/接口需求
 │   │   ├── 阶段2-硬件设计说明及硬件原理图.md # 完整硬件电路设计
@@ -349,7 +349,7 @@ mcu-course-knowledge-base/
 │   ├── 知识库结构README.pdf            # 知识库结构说明
 │   ├── 单片机工程实训_注意事项总结.html  # 实训注意事项
 │   ├── 任务书/                         # 课程任务书
-│   ├── 参考模板/                       # 实验报告模板 (5份 docx + 2份 md)
+│   ├── 参考模板/                       # 实验报告模板 (5份 docx + 1份 md)
 │   ├── 实验报告/                       # P-A-1 实验报告 (初版/修改版/最终版)
 │   └── 原理图/                         # CT107D 实验板原理图
 │
