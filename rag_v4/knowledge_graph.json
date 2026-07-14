@@ -1,11 +1,11 @@
 {
   "meta": {
     "course": "单片机工程实训",
-    "institution": "北京石油化工学院信息工程学院自动化系",
+    "institution": "某高校信息工程学院自动化系",
     "teachers": [
-      "李晶",
-      "马苗立",
-      "邱科鹏"
+      "某教师",
+      "教师B",
+      "教师C"
     ],
     "version": "2.0测试版",
     "date": "2026年3月14日"
@@ -933,16 +933,16 @@
       "pins_summary": "VCC=+5V, DATA=P3.3(4.7KΩ上拉), NC=悬空, GND=地, 协议:单总线40位数据"
     },
     {
-      "id": "teacher_李晶",
+      "id": "teacher_placeholder",
       "type": "teacher",
-      "label": "李晶",
-      "role": "电231班指导老师"
+      "label": "某教师",
+      "role": "某班级指导老师"
     },
     {
-      "id": "class_电231",
+      "id": "class_placeholder",
       "type": "class",
-      "label": "电231班",
-      "institution": "北京石油化工学院信息工程学院自动化系",
+      "label": "某班级",
+      "institution": "某高校信息工程学院自动化系",
       "course": "单片机工程实训"
     }
   ],
@@ -1939,17 +1939,17 @@
     },
     {
       "source": "course",
-      "target": "teacher_李晶",
+      "target": "teacher_placeholder",
       "relation": "has_teacher"
     },
     {
       "source": "course",
-      "target": "class_电231",
+      "target": "class_placeholder",
       "relation": "has_class"
     },
     {
-      "source": "teacher_李晶",
-      "target": "class_电231",
+      "source": "teacher_placeholder",
+      "target": "class_placeholder",
       "relation": "teaches"
     }
   ]
