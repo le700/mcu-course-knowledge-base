@@ -1,0 +1,1956 @@
+{
+  "meta": {
+    "course": "单片机工程实训",
+    "institution": "北京石油化工学院信息工程学院自动化系",
+    "teachers": [
+      "李晶",
+      "马苗立",
+      "邱科鹏"
+    ],
+    "version": "2.0测试版",
+    "date": "2026年3月14日"
+  },
+  "nodes": [
+    {
+      "id": "grade_1",
+      "type": "grade",
+      "label": "成绩1-单片机工程实训笔记",
+      "percentage": "2%"
+    },
+    {
+      "id": "grade_2",
+      "type": "grade",
+      "label": "成绩2-单片机工程实训基本实验",
+      "percentage": "10%"
+    },
+    {
+      "id": "grade_3",
+      "type": "grade",
+      "label": "成绩3-系统详细硬件原理图（手绘）",
+      "percentage": "4%"
+    },
+    {
+      "id": "grade_4",
+      "type": "grade",
+      "label": "成绩4-程序流程图",
+      "percentage": "4%"
+    },
+    {
+      "id": "grade_5",
+      "type": "grade",
+      "label": "成绩5-程序清单",
+      "percentage": "4%"
+    },
+    {
+      "id": "grade_6",
+      "type": "grade",
+      "label": "成绩6-系统软硬件调试",
+      "percentage": "30%"
+    },
+    {
+      "id": "grade_7",
+      "type": "grade",
+      "label": "成绩7-开卷答辩",
+      "percentage": "34%"
+    },
+    {
+      "id": "grade_8",
+      "type": "grade",
+      "label": "成绩8-单片机工程实训综合报告",
+      "percentage": "10%"
+    },
+    {
+      "id": "grade_9",
+      "type": "grade",
+      "label": "成绩9-实验纪律",
+      "percentage": "2%"
+    },
+    {
+      "id": "course",
+      "type": "course",
+      "label": "单片机工程实训"
+    },
+    {
+      "id": "schedule_auto",
+      "type": "schedule",
+      "label": "自动化专业",
+      "details": "1天培训+5天基本实验+8.5天综合设计+0.5天答辩=15天"
+    },
+    {
+      "id": "schedule_elec",
+      "type": "schedule",
+      "label": "电气工程及自动化专业",
+      "details": "1天培训+2天基本实验+6.5天综合设计+0.5天答辩=9.5天"
+    },
+    {
+      "id": "event_training",
+      "type": "event",
+      "label": "现场培训",
+      "week": "第18周",
+      "day": "周一",
+      "location": "实验室",
+      "description": "实验室听讲，课堂笔记"
+    },
+    {
+      "id": "event_basic_exp",
+      "type": "event",
+      "label": "基本实验",
+      "week": "第18-19周",
+      "location": "实验室",
+      "description": "个人独立完成基本实验"
+    },
+    {
+      "id": "event_design",
+      "type": "event",
+      "label": "综合设计",
+      "week": "第19-20周",
+      "location": "实验室",
+      "description": "3人小组完成综合设计"
+    },
+    {
+      "id": "event_defense",
+      "type": "event",
+      "label": "答辩考试",
+      "week": "第20周",
+      "date": "2026-07-14",
+      "day": "周一",
+      "time": "13:30-14:30",
+      "location": "综701",
+      "description": "开卷答辩，个人独立完成"
+    },
+    {
+      "id": "event_report",
+      "type": "event",
+      "label": "提交报告",
+      "week": "第20周",
+      "description": "提交综合设计报告"
+    },
+    {
+      "id": "exp_4_1",
+      "label": "4.1 开关与LED显示",
+      "chapter": "第4章 基本接口实验",
+      "section": "4.1",
+      "page": 8,
+      "type": "basic",
+      "equipment": [
+        "开关",
+        "LED"
+      ]
+    },
+    {
+      "id": "equip_开关",
+      "type": "equipment",
+      "label": "开关"
+    },
+    {
+      "id": "equip_LED",
+      "type": "equipment",
+      "label": "LED"
+    },
+    {
+      "id": "exp_4_2",
+      "label": "4.2 逻辑电平开关控制器",
+      "chapter": "第4章 基本接口实验",
+      "section": "4.2",
+      "page": 10,
+      "type": "basic",
+      "equipment": [
+        "逻辑电平开关"
+      ]
+    },
+    {
+      "id": "equip_逻辑电平开关",
+      "type": "equipment",
+      "label": "逻辑电平开关"
+    },
+    {
+      "id": "exp_4_3",
+      "label": "4.3 中断系统",
+      "chapter": "第4章 基本接口实验",
+      "section": "4.3",
+      "page": 11,
+      "type": "basic",
+      "equipment": [
+        "中断控制器"
+      ]
+    },
+    {
+      "id": "equip_中断控制器",
+      "type": "equipment",
+      "label": "中断控制器"
+    },
+    {
+      "id": "exp_4_4",
+      "label": "4.4 定时器",
+      "chapter": "第4章 基本接口实验",
+      "section": "4.4",
+      "page": 12,
+      "type": "basic",
+      "equipment": [
+        "定时器"
+      ]
+    },
+    {
+      "id": "equip_定时器",
+      "type": "equipment",
+      "label": "定时器"
+    },
+    {
+      "id": "exp_4_5",
+      "label": "4.5 双外部中断优先级",
+      "chapter": "第4章 基本接口实验",
+      "section": "4.5",
+      "page": 13,
+      "type": "basic",
+      "equipment": [
+        "外部中断"
+      ]
+    },
+    {
+      "id": "equip_外部中断",
+      "type": "equipment",
+      "label": "外部中断"
+    },
+    {
+      "id": "exp_4_6",
+      "label": "4.6 数码管",
+      "chapter": "第4章 基本接口实验",
+      "section": "4.6",
+      "page": 13,
+      "type": "basic",
+      "equipment": [
+        "数码管"
+      ]
+    },
+    {
+      "id": "equip_数码管",
+      "type": "equipment",
+      "label": "数码管"
+    },
+    {
+      "id": "exp_4_7",
+      "label": "4.7 独立按钮",
+      "chapter": "第4章 基本接口实验",
+      "section": "4.7",
+      "page": 15,
+      "type": "basic",
+      "equipment": [
+        "独立按钮"
+      ]
+    },
+    {
+      "id": "equip_独立按钮",
+      "type": "equipment",
+      "label": "独立按钮"
+    },
+    {
+      "id": "exp_4_8",
+      "label": "4.8 矩阵键盘",
+      "chapter": "第4章 基本接口实验",
+      "section": "4.8",
+      "page": 16,
+      "type": "basic",
+      "equipment": [
+        "矩阵键盘"
+      ]
+    },
+    {
+      "id": "equip_矩阵键盘",
+      "type": "equipment",
+      "label": "矩阵键盘"
+    },
+    {
+      "id": "exp_4_9",
+      "label": "4.9 模数转换",
+      "chapter": "第4章 基本接口实验",
+      "section": "4.9",
+      "page": 18,
+      "type": "basic",
+      "equipment": [
+        "ADC0809"
+      ]
+    },
+    {
+      "id": "equip_ADC0809",
+      "type": "equipment",
+      "label": "ADC0809"
+    },
+    {
+      "id": "exp_4_10",
+      "label": "4.10 数模转换",
+      "chapter": "第4章 基本接口实验",
+      "section": "4.10",
+      "page": 19,
+      "type": "basic",
+      "equipment": [
+        "DAC"
+      ]
+    },
+    {
+      "id": "equip_DAC",
+      "type": "equipment",
+      "label": "DAC"
+    },
+    {
+      "id": "exp_4_11",
+      "label": "4.11 LCD1602字符液晶显示",
+      "chapter": "第4章 基本接口实验",
+      "section": "4.11",
+      "page": 20,
+      "type": "basic",
+      "equipment": [
+        "LCD1602"
+      ]
+    },
+    {
+      "id": "equip_LCD1602",
+      "type": "equipment",
+      "label": "LCD1602"
+    },
+    {
+      "id": "exp_5_2",
+      "label": "5.2 实时时钟DS1302",
+      "chapter": "第5章 基本扩展实验",
+      "section": "5.2",
+      "page": 29,
+      "type": "extended",
+      "equipment": [
+        "DS1302"
+      ]
+    },
+    {
+      "id": "equip_DS1302",
+      "type": "equipment",
+      "label": "DS1302"
+    },
+    {
+      "id": "exp_5_3",
+      "label": "5.3 温度传感器DS18B20",
+      "chapter": "第5章 基本扩展实验",
+      "section": "5.3",
+      "page": 32,
+      "type": "extended",
+      "equipment": [
+        "DS18B20"
+      ]
+    },
+    {
+      "id": "equip_DS18B20",
+      "type": "equipment",
+      "label": "DS18B20"
+    },
+    {
+      "id": "exp_5_4",
+      "label": "5.4 温湿度传感器DHT11",
+      "chapter": "第5章 基本扩展实验",
+      "section": "5.4",
+      "page": 33,
+      "type": "extended",
+      "equipment": [
+        "DHT11"
+      ]
+    },
+    {
+      "id": "equip_DHT11",
+      "type": "equipment",
+      "label": "DHT11"
+    },
+    {
+      "id": "exp_5_5",
+      "label": "5.5 继电器控制",
+      "chapter": "第5章 基本扩展实验",
+      "section": "5.5",
+      "page": 34,
+      "type": "extended",
+      "equipment": [
+        "继电器"
+      ]
+    },
+    {
+      "id": "equip_继电器",
+      "type": "equipment",
+      "label": "继电器"
+    },
+    {
+      "id": "exp_5_6",
+      "label": "5.6 电机控制",
+      "chapter": "第5章 基本扩展实验",
+      "section": "5.6",
+      "page": 36,
+      "type": "extended",
+      "equipment": [
+        "电机"
+      ]
+    },
+    {
+      "id": "equip_电机",
+      "type": "equipment",
+      "label": "电机"
+    },
+    {
+      "id": "exp_5_7",
+      "label": "5.7 AT24C02存储器",
+      "chapter": "第5章 基本扩展实验",
+      "section": "5.7",
+      "page": 38,
+      "type": "extended",
+      "equipment": [
+        "AT24C02"
+      ]
+    },
+    {
+      "id": "equip_AT24C02",
+      "type": "equipment",
+      "label": "AT24C02"
+    },
+    {
+      "id": "design_P-A-1#",
+      "label": "P-A-1# 温湿度检测系统设计",
+      "chapter": "第6章 单片机综合设计A",
+      "peripherals": [
+        "ADC0809",
+        "DHT11",
+        "数码管",
+        "LED",
+        "开关",
+        "串口"
+      ],
+      "related_exps": [
+        "exp_4_1",
+        "exp_4_6",
+        "exp_4_9",
+        "exp_5_4"
+      ]
+    },
+    {
+      "id": "peripheral_ADC0809",
+      "type": "peripheral",
+      "label": "ADC0809"
+    },
+    {
+      "id": "peripheral_DS18B20",
+      "type": "peripheral",
+      "label": "DS18B20"
+    },
+    {
+      "id": "peripheral_数码管",
+      "type": "peripheral",
+      "label": "数码管"
+    },
+    {
+      "id": "peripheral_LED",
+      "type": "peripheral",
+      "label": "LED"
+    },
+    {
+      "id": "peripheral_开关",
+      "type": "peripheral",
+      "label": "开关"
+    },
+    {
+      "id": "peripheral_串口",
+      "type": "peripheral",
+      "label": "串口"
+    },
+    {
+      "id": "design_P-A-2#",
+      "label": "P-A-2# 光控系统设计",
+      "chapter": "第6章 单片机综合设计A",
+      "peripherals": [
+        "ADC0809",
+        "光敏三极管",
+        "数码管",
+        "LED",
+        "开关",
+        "串口"
+      ],
+      "related_exps": [
+        "exp_4_1",
+        "exp_4_6",
+        "exp_4_9"
+      ]
+    },
+    {
+      "id": "peripheral_光敏三极管",
+      "type": "peripheral",
+      "label": "光敏三极管"
+    },
+    {
+      "id": "design_P-A-3#",
+      "label": "P-A-3# 温度记录器设计",
+      "chapter": "第6章 单片机综合设计A",
+      "peripherals": [
+        "PCF8591",
+        "DS18B20",
+        "数码管",
+        "LED",
+        "按钮",
+        "串口"
+      ],
+      "related_exps": [
+        "exp_4_1",
+        "exp_4_6",
+        "exp_4_7",
+        "exp_5_3"
+      ]
+    },
+    {
+      "id": "peripheral_PCF8591",
+      "type": "peripheral",
+      "label": "PCF8591"
+    },
+    {
+      "id": "peripheral_按钮",
+      "type": "peripheral",
+      "label": "按钮"
+    },
+    {
+      "id": "design_P-A-4#",
+      "label": "P-A-4# 电子时钟系统设计",
+      "chapter": "第6章 单片机综合设计A",
+      "peripherals": [
+        "PCF8591",
+        "DS1302",
+        "数码管",
+        "LED",
+        "按钮",
+        "串口"
+      ],
+      "related_exps": [
+        "exp_4_1",
+        "exp_4_6",
+        "exp_4_7",
+        "exp_5_2"
+      ]
+    },
+    {
+      "id": "peripheral_DS1302",
+      "type": "peripheral",
+      "label": "DS1302"
+    },
+    {
+      "id": "design_P-A-5#",
+      "label": "P-A-5# 超声波测距系统设计",
+      "chapter": "第6章 单片机综合设计A",
+      "peripherals": [
+        "PCF8591",
+        "超声波传感器",
+        "数码管",
+        "LED",
+        "按钮",
+        "串口"
+      ],
+      "related_exps": [
+        "exp_4_1",
+        "exp_4_6",
+        "exp_4_7"
+      ]
+    },
+    {
+      "id": "peripheral_超声波传感器",
+      "type": "peripheral",
+      "label": "超声波传感器"
+    },
+    {
+      "id": "design_P-B-1#",
+      "label": "P-B-1# 温湿度检测系统",
+      "chapter": "第7章 单片机综合设计B",
+      "peripherals": [
+        "温湿度传感器",
+        "AD芯片",
+        "DA芯片",
+        "多位数码管",
+        "LCD1602"
+      ],
+      "related_exps": [
+        "exp_4_6",
+        "exp_4_9",
+        "exp_4_11",
+        "exp_5_4"
+      ]
+    },
+    {
+      "id": "peripheral_温湿度传感器",
+      "type": "peripheral",
+      "label": "温湿度传感器"
+    },
+    {
+      "id": "peripheral_AD芯片",
+      "type": "peripheral",
+      "label": "AD芯片"
+    },
+    {
+      "id": "peripheral_DA芯片",
+      "type": "peripheral",
+      "label": "DA芯片"
+    },
+    {
+      "id": "peripheral_多位数码管",
+      "type": "peripheral",
+      "label": "多位数码管"
+    },
+    {
+      "id": "peripheral_LCD1602",
+      "type": "peripheral",
+      "label": "LCD1602"
+    },
+    {
+      "id": "design_P-B-2#",
+      "label": "P-B-2# 小车控制系统",
+      "chapter": "第7章 单片机综合设计B",
+      "peripherals": [
+        "超声波传感器",
+        "AD芯片",
+        "DA芯片",
+        "多位数码管",
+        "电机"
+      ],
+      "related_exps": [
+        "exp_4_6",
+        "exp_4_9",
+        "exp_5_6"
+      ]
+    },
+    {
+      "id": "peripheral_电机",
+      "type": "peripheral",
+      "label": "电机"
+    },
+    {
+      "id": "design_P-B-3#",
+      "label": "P-B-3# 智慧家居系统",
+      "chapter": "第7章 单片机综合设计B",
+      "peripherals": [
+        "温湿度传感器",
+        "模拟气体传感器",
+        "电机",
+        "风扇",
+        "报警灯",
+        "多位数码管",
+        "LCD1602"
+      ],
+      "related_exps": [
+        "exp_4_6",
+        "exp_4_9",
+        "exp_4_11",
+        "exp_5_4",
+        "exp_5_5",
+        "exp_5_6"
+      ]
+    },
+    {
+      "id": "peripheral_模拟气体传感器",
+      "type": "peripheral",
+      "label": "模拟气体传感器"
+    },
+    {
+      "id": "peripheral_风扇",
+      "type": "peripheral",
+      "label": "风扇"
+    },
+    {
+      "id": "peripheral_报警灯",
+      "type": "peripheral",
+      "label": "报警灯"
+    },
+    {
+      "id": "design_P-B-4#",
+      "label": "P-B-4# 炉温控制系统",
+      "chapter": "第7章 单片机综合设计B",
+      "peripherals": [
+        "热电偶传感器",
+        "ADC0809",
+        "加热器",
+        "LCD1602",
+        "EEPROM",
+        "报警电路"
+      ],
+      "related_exps": [
+        "exp_4_6",
+        "exp_4_9",
+        "exp_4_11",
+        "exp_5_7"
+      ]
+    },
+    {
+      "id": "peripheral_热电偶传感器",
+      "type": "peripheral",
+      "label": "热电偶传感器"
+    },
+    {
+      "id": "peripheral_加热器",
+      "type": "peripheral",
+      "label": "加热器"
+    },
+    {
+      "id": "peripheral_EEPROM",
+      "type": "peripheral",
+      "label": "EEPROM"
+    },
+    {
+      "id": "peripheral_报警电路",
+      "type": "peripheral",
+      "label": "报警电路"
+    },
+    {
+      "id": "design_P-B-5#",
+      "label": "P-B-5# 智能交通灯控制系统",
+      "chapter": "第7章 单片机综合设计B",
+      "peripherals": [
+        "红外传感器",
+        "超声波传感器",
+        "LED交通灯",
+        "数码管",
+        "按键",
+        "蜂鸣器"
+      ],
+      "related_exps": [
+        "exp_4_1",
+        "exp_4_6",
+        "exp_4_7"
+      ]
+    },
+    {
+      "id": "peripheral_红外传感器",
+      "type": "peripheral",
+      "label": "红外传感器"
+    },
+    {
+      "id": "peripheral_LED交通灯",
+      "type": "peripheral",
+      "label": "LED交通灯"
+    },
+    {
+      "id": "peripheral_按键",
+      "type": "peripheral",
+      "label": "按键"
+    },
+    {
+      "id": "peripheral_蜂鸣器",
+      "type": "peripheral",
+      "label": "蜂鸣器"
+    },
+    {
+      "id": "design_P-B-6#",
+      "label": "P-B-6# 智能门禁系统",
+      "chapter": "第7章 单片机综合设计B",
+      "peripherals": [
+        "矩阵键盘",
+        "RFID-RC522",
+        "电磁锁",
+        "LCD1602",
+        "EEPROM",
+        "蜂鸣器",
+        "红外遥控"
+      ],
+      "related_exps": [
+        "exp_4_8",
+        "exp_4_11",
+        "exp_5_7"
+      ]
+    },
+    {
+      "id": "peripheral_矩阵键盘",
+      "type": "peripheral",
+      "label": "矩阵键盘"
+    },
+    {
+      "id": "peripheral_RFID-RC522",
+      "type": "peripheral",
+      "label": "RFID-RC522"
+    },
+    {
+      "id": "peripheral_电磁锁",
+      "type": "peripheral",
+      "label": "电磁锁"
+    },
+    {
+      "id": "peripheral_红外遥控",
+      "type": "peripheral",
+      "label": "红外遥控"
+    },
+    {
+      "id": "第1章 单片机原理",
+      "type": "chapter",
+      "page": 2
+    },
+    {
+      "id": "第2章 预备实验",
+      "type": "chapter",
+      "page": 3
+    },
+    {
+      "id": "第3章 基本语言实验",
+      "type": "chapter",
+      "page": 5
+    },
+    {
+      "id": "第4章 基本接口实验",
+      "type": "chapter",
+      "page": 8
+    },
+    {
+      "id": "第5章 基本扩展实验",
+      "type": "chapter",
+      "page": 24
+    },
+    {
+      "id": "第6章 单片机综合设计A",
+      "type": "chapter",
+      "page": 41
+    },
+    {
+      "id": "第7章 单片机综合设计B",
+      "type": "chapter",
+      "page": 45
+    },
+    {
+      "id": "第8章 实验系统介绍",
+      "type": "chapter",
+      "page": 57
+    },
+    {
+      "id": "第9章 软件工具使用指南",
+      "type": "chapter",
+      "page": 61
+    },
+    {
+      "id": "第10章 C51简明教程",
+      "type": "chapter",
+      "page": 108
+    },
+    {
+      "id": "第11章 实验报告模板及要求",
+      "type": "chapter",
+      "page": 109
+    },
+    {
+      "id": "ref_codex_pa1",
+      "type": "reference_code",
+      "label": "Codex版 P-A-1 温湿度检测 完整README",
+      "file": "/workspace/P-A-1-Codex参考_README.md",
+      "source": "Codex AI生成",
+      "platform": "STC89C54RD+ 12MHz + 8255A + ADC0809 + DHT11",
+      "key_points": [
+        "串口1200波特率，大写A解锁",
+        "前4开关SK0-SK3全1→ADC0809 IN0电位器→显示Axx.xx",
+        "后4开关SK4-SK7全1→DHT11环境温度→显示Cxx.00或C88.88",
+        "8255地址0x0480避开片内XRAM",
+        "6位共阴数码管，PA口LED，PB口段码，PC口开关",
+        "含分步验证小程序 step03-step09",
+        "含答辩讲解词和验收演示流程"
+      ]
+    },
+    {
+      "id": "hw_board1",
+      "type": "hardware_board",
+      "label": "目标板1-底板",
+      "description": "STC89C54RD+ + ADC0809 + 74HC373 + 74HC240 + 74HC02 + 8位共阳数码管 + 8LED + 按键S0-S7 + 串口CH341T+MAX485",
+      "mcu": "STC89C54RD+",
+      "crystal": "12MHz",
+      "ref_file": "/workspace/rag_v4/hardware_ref_pa1.md"
+    },
+    {
+      "id": "hw_board2",
+      "type": "hardware_board",
+      "label": "目标板2-扩展板",
+      "description": "8255A + ULN2003A + 6位共阴数码管FJ3661AH + DHT11 + 按键LK0-LK7 + 开关SK0-SK7",
+      "ref_file": "/workspace/rag_v4/hardware_ref_pa1.md"
+    },
+    {
+      "id": "hw_pa1_interconnect",
+      "type": "hardware_interconnect",
+      "label": "两板互联关系",
+      "connection": "排针排母",
+      "signals": {
+        "data_bus": "P0.0-P0.7 ↔ 8255 D0-D7",
+        "address_bus": "P0.0-P0.1直连8255 A0-A1",
+        "control": "P3.7/RD ↔ 8255 /RD, P3.6/WR ↔ 8255 /WR",
+        "chip_select": "P2.6 ↔ 8255 /CS",
+        "digit_select": "P1.0-P1.5 → ULN2003A IN1-IN6",
+        "dht11_data": "P3.3 ↔ DHT11 DATA",
+        "power": "VCC/GND"
+      }
+    },
+    {
+      "id": "adc0809_pins",
+      "type": "chip_pinout",
+      "label": "ADC0809引脚表",
+      "chip": "ADC0809",
+      "package": "DIP28",
+      "base_address": "0x4000",
+      "pins_summary": "IN0=DW1(温度), IN1=DWQ(湿度), D0-D7=P0.0-P0.7, ADD-A/B/C=74HC373 Q0-Q2, ALE+START=74HC02 U8A, OE=74HC02 U8B, EOC=P3.2, CLK=ALE, VREF+=VCC"
+    },
+    {
+      "id": "74hc373_pins",
+      "type": "chip_pinout",
+      "label": "74HC373引脚表",
+      "chip": "74HC373",
+      "package": "DIP20",
+      "pins_summary": "D0-D7=P0.0-P0.7, Q0-Q2→ADC0809 ADD, Q7→74HC02译码, LE=ALE, /OE=GND"
+    },
+    {
+      "id": "74hc240_pins",
+      "type": "chip_pinout",
+      "label": "74HC240引脚表",
+      "chip": "74HC240",
+      "package": "DIP20",
+      "pins_summary": "1A1-2A1=P0.0-P0.7反相→数码管段a-g,dp, /1G=/2G=GND常使能"
+    },
+    {
+      "id": "74hc02_pins",
+      "type": "chip_pinout",
+      "label": "74HC02引脚表",
+      "chip": "74HC02",
+      "package": "DIP14",
+      "pins_summary": "U8A: /WR+A7→ADC START+ALE, U8B: /RD+A7→ADC OE, U8C/U8D未用"
+    },
+    {
+      "id": "i8255_pins",
+      "type": "chip_pinout",
+      "label": "8255A引脚表",
+      "chip": "8255A",
+      "package": "DIP40",
+      "control_word": "0x89",
+      "base_address": "0x0480",
+      "port_addresses": {"PA": "0x0480", "PB": "0x0481", "PC": "0x0482", "CTRL": "0x0483"},
+      "pins_summary": "/CS=P2.6, /RD=P3.7, /WR=P3.6, A0/A1=P0.0/P0.1, D0-D7=P0.0-P0.7, PA0-7=LK0-7, PB0-7=段码dp/g/f/e/d/c/b/a, PC0-7=SK0-7"
+    },
+    {
+      "id": "uln2003_pins",
+      "type": "chip_pinout",
+      "label": "ULN2003A引脚表",
+      "chip": "ULN2003A",
+      "package": "DIP16",
+      "pins_summary": "1B-6B=P1.0-P1.5, 7B=NC, 1C-6C→DP-L1~DP-L6共阴极, 7C=NC, COM=VCC, 6路达林顿驱动"
+    },
+    {
+      "id": "dht11_pins",
+      "type": "chip_pinout",
+      "label": "DHT11引脚表",
+      "chip": "DHT11",
+      "package": "4Pin单排",
+      "pins_summary": "VCC=+5V, DATA=P3.3(4.7KΩ上拉), NC=悬空, GND=地, 协议:单总线40位数据"
+    },
+    {
+      "id": "teacher_李晶",
+      "type": "teacher",
+      "label": "李晶",
+      "role": "电231班指导老师"
+    },
+    {
+      "id": "class_电231",
+      "type": "class",
+      "label": "电231班",
+      "institution": "北京石油化工学院信息工程学院自动化系",
+      "course": "单片机工程实训"
+    }
+  ],
+  "edges": [
+    {
+      "source": "course",
+      "target": "grade_1",
+      "relation": "has_grade",
+      "weight": "2%"
+    },
+    {
+      "source": "course",
+      "target": "grade_2",
+      "relation": "has_grade",
+      "weight": "10%"
+    },
+    {
+      "source": "course",
+      "target": "grade_3",
+      "relation": "has_grade",
+      "weight": "4%"
+    },
+    {
+      "source": "course",
+      "target": "grade_4",
+      "relation": "has_grade",
+      "weight": "4%"
+    },
+    {
+      "source": "course",
+      "target": "grade_5",
+      "relation": "has_grade",
+      "weight": "4%"
+    },
+    {
+      "source": "course",
+      "target": "grade_6",
+      "relation": "has_grade",
+      "weight": "30%"
+    },
+    {
+      "source": "course",
+      "target": "grade_7",
+      "relation": "has_grade",
+      "weight": "34%"
+    },
+    {
+      "source": "course",
+      "target": "grade_8",
+      "relation": "has_grade",
+      "weight": "10%"
+    },
+    {
+      "source": "course",
+      "target": "grade_9",
+      "relation": "has_grade",
+      "weight": "2%"
+    },
+    {
+      "source": "course",
+      "target": "schedule_auto",
+      "relation": "has_schedule"
+    },
+    {
+      "source": "course",
+      "target": "schedule_elec",
+      "relation": "has_schedule"
+    },
+    {
+      "source": "course",
+      "target": "event_training",
+      "relation": "has_event"
+    },
+    {
+      "source": "course",
+      "target": "event_basic_exp",
+      "relation": "has_event"
+    },
+    {
+      "source": "course",
+      "target": "event_design",
+      "relation": "has_event"
+    },
+    {
+      "source": "course",
+      "target": "event_defense",
+      "relation": "has_event"
+    },
+    {
+      "source": "course",
+      "target": "event_report",
+      "relation": "has_event"
+    },
+    {
+      "source": "event_training",
+      "target": "event_basic_exp",
+      "relation": "next_event"
+    },
+    {
+      "source": "event_basic_exp",
+      "target": "event_design",
+      "relation": "next_event"
+    },
+    {
+      "source": "event_design",
+      "target": "event_defense",
+      "relation": "next_event"
+    },
+    {
+      "source": "event_defense",
+      "target": "event_report",
+      "relation": "next_event"
+    },
+    {
+      "source": "第4章 基本接口实验",
+      "target": "exp_4_1",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_4_1",
+      "target": "equip_开关",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "exp_4_1",
+      "target": "equip_LED",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第4章 基本接口实验",
+      "target": "exp_4_2",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_4_2",
+      "target": "equip_逻辑电平开关",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第4章 基本接口实验",
+      "target": "exp_4_3",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_4_3",
+      "target": "equip_中断控制器",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第4章 基本接口实验",
+      "target": "exp_4_4",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_4_4",
+      "target": "equip_定时器",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第4章 基本接口实验",
+      "target": "exp_4_5",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_4_5",
+      "target": "equip_外部中断",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第4章 基本接口实验",
+      "target": "exp_4_6",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_4_6",
+      "target": "equip_数码管",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第4章 基本接口实验",
+      "target": "exp_4_7",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_4_7",
+      "target": "equip_独立按钮",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第4章 基本接口实验",
+      "target": "exp_4_8",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_4_8",
+      "target": "equip_矩阵键盘",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第4章 基本接口实验",
+      "target": "exp_4_9",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_4_9",
+      "target": "equip_ADC0809",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第4章 基本接口实验",
+      "target": "exp_4_10",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_4_10",
+      "target": "equip_DAC",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第4章 基本接口实验",
+      "target": "exp_4_11",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_4_11",
+      "target": "equip_LCD1602",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第5章 基本扩展实验",
+      "target": "exp_5_2",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_5_2",
+      "target": "equip_DS1302",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第5章 基本扩展实验",
+      "target": "exp_5_3",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_5_3",
+      "target": "equip_DS18B20",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第5章 基本扩展实验",
+      "target": "exp_5_4",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_5_4",
+      "target": "equip_DHT11",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第5章 基本扩展实验",
+      "target": "exp_5_5",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_5_5",
+      "target": "equip_继电器",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第5章 基本扩展实验",
+      "target": "exp_5_6",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_5_6",
+      "target": "equip_电机",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第5章 基本扩展实验",
+      "target": "exp_5_7",
+      "relation": "contains"
+    },
+    {
+      "source": "exp_5_7",
+      "target": "equip_AT24C02",
+      "relation": "uses_equipment"
+    },
+    {
+      "source": "第6章 单片机综合设计A",
+      "target": "design_P-A-1#",
+      "relation": "contains"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "peripheral_ADC0809",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "peripheral_DHT11",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "peripheral_数码管",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "peripheral_LED",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "peripheral_开关",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "peripheral_串口",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "exp_4_1",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "exp_4_6",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "exp_4_9",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "exp_5_4",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "第6章 单片机综合设计A",
+      "target": "design_P-A-2#",
+      "relation": "contains"
+    },
+    {
+      "source": "design_P-A-2#",
+      "target": "peripheral_ADC0809",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-2#",
+      "target": "peripheral_光敏三极管",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-2#",
+      "target": "peripheral_数码管",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-2#",
+      "target": "peripheral_LED",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-2#",
+      "target": "peripheral_开关",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-2#",
+      "target": "peripheral_串口",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-2#",
+      "target": "exp_4_1",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-2#",
+      "target": "exp_4_6",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-2#",
+      "target": "exp_4_9",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "第6章 单片机综合设计A",
+      "target": "design_P-A-3#",
+      "relation": "contains"
+    },
+    {
+      "source": "design_P-A-3#",
+      "target": "peripheral_PCF8591",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-3#",
+      "target": "peripheral_DS18B20",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-3#",
+      "target": "peripheral_数码管",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-3#",
+      "target": "peripheral_LED",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-3#",
+      "target": "peripheral_按钮",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-3#",
+      "target": "peripheral_串口",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-3#",
+      "target": "exp_4_1",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-3#",
+      "target": "exp_4_6",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-3#",
+      "target": "exp_4_7",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-3#",
+      "target": "exp_5_3",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "第6章 单片机综合设计A",
+      "target": "design_P-A-4#",
+      "relation": "contains"
+    },
+    {
+      "source": "design_P-A-4#",
+      "target": "peripheral_PCF8591",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-4#",
+      "target": "peripheral_DS1302",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-4#",
+      "target": "peripheral_数码管",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-4#",
+      "target": "peripheral_LED",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-4#",
+      "target": "peripheral_按钮",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-4#",
+      "target": "peripheral_串口",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-4#",
+      "target": "exp_4_1",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-4#",
+      "target": "exp_4_6",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-4#",
+      "target": "exp_4_7",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-4#",
+      "target": "exp_5_2",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "第6章 单片机综合设计A",
+      "target": "design_P-A-5#",
+      "relation": "contains"
+    },
+    {
+      "source": "design_P-A-5#",
+      "target": "peripheral_PCF8591",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-5#",
+      "target": "peripheral_超声波传感器",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-5#",
+      "target": "peripheral_数码管",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-5#",
+      "target": "peripheral_LED",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-5#",
+      "target": "peripheral_按钮",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-5#",
+      "target": "peripheral_串口",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-A-5#",
+      "target": "exp_4_1",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-5#",
+      "target": "exp_4_6",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-A-5#",
+      "target": "exp_4_7",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "第7章 单片机综合设计B",
+      "target": "design_P-B-1#",
+      "relation": "contains"
+    },
+    {
+      "source": "design_P-B-1#",
+      "target": "peripheral_温湿度传感器",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-1#",
+      "target": "peripheral_AD芯片",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-1#",
+      "target": "peripheral_DA芯片",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-1#",
+      "target": "peripheral_多位数码管",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-1#",
+      "target": "peripheral_LCD1602",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-1#",
+      "target": "exp_4_6",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-1#",
+      "target": "exp_4_9",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-1#",
+      "target": "exp_4_11",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-1#",
+      "target": "exp_5_4",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "第7章 单片机综合设计B",
+      "target": "design_P-B-2#",
+      "relation": "contains"
+    },
+    {
+      "source": "design_P-B-2#",
+      "target": "peripheral_超声波传感器",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-2#",
+      "target": "peripheral_AD芯片",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-2#",
+      "target": "peripheral_DA芯片",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-2#",
+      "target": "peripheral_多位数码管",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-2#",
+      "target": "peripheral_电机",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-2#",
+      "target": "exp_4_6",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-2#",
+      "target": "exp_4_9",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-2#",
+      "target": "exp_5_6",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "第7章 单片机综合设计B",
+      "target": "design_P-B-3#",
+      "relation": "contains"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "peripheral_温湿度传感器",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "peripheral_模拟气体传感器",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "peripheral_电机",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "peripheral_风扇",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "peripheral_报警灯",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "peripheral_多位数码管",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "peripheral_LCD1602",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "exp_4_6",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "exp_4_9",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "exp_4_11",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "exp_5_4",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "exp_5_5",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-3#",
+      "target": "exp_5_6",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "第7章 单片机综合设计B",
+      "target": "design_P-B-4#",
+      "relation": "contains"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "peripheral_热电偶传感器",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "peripheral_ADC0809",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "peripheral_加热器",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "peripheral_LCD1602",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "peripheral_EEPROM",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "peripheral_报警电路",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "exp_4_6",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "exp_4_9",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "exp_4_11",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-4#",
+      "target": "exp_5_7",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "第7章 单片机综合设计B",
+      "target": "design_P-B-5#",
+      "relation": "contains"
+    },
+    {
+      "source": "design_P-B-5#",
+      "target": "peripheral_红外传感器",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-5#",
+      "target": "peripheral_超声波传感器",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-5#",
+      "target": "peripheral_LED交通灯",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-5#",
+      "target": "peripheral_数码管",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-5#",
+      "target": "peripheral_按键",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-5#",
+      "target": "peripheral_蜂鸣器",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-5#",
+      "target": "exp_4_1",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-5#",
+      "target": "exp_4_6",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-5#",
+      "target": "exp_4_7",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "第7章 单片机综合设计B",
+      "target": "design_P-B-6#",
+      "relation": "contains"
+    },
+    {
+      "source": "design_P-B-6#",
+      "target": "peripheral_矩阵键盘",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-6#",
+      "target": "peripheral_RFID-RC522",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-6#",
+      "target": "peripheral_电磁锁",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-6#",
+      "target": "peripheral_LCD1602",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-6#",
+      "target": "peripheral_EEPROM",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-6#",
+      "target": "peripheral_蜂鸣器",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-6#",
+      "target": "peripheral_红外遥控",
+      "relation": "requires_peripheral"
+    },
+    {
+      "source": "design_P-B-6#",
+      "target": "exp_4_8",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-6#",
+      "target": "exp_4_11",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "design_P-B-6#",
+      "target": "exp_5_7",
+      "relation": "based_on_experiment"
+    },
+    {
+      "source": "course",
+      "target": "第1章 单片机原理",
+      "relation": "has_chapter"
+    },
+    {
+      "source": "course",
+      "target": "第2章 预备实验",
+      "relation": "has_chapter"
+    },
+    {
+      "source": "course",
+      "target": "第3章 基本语言实验",
+      "relation": "has_chapter"
+    },
+    {
+      "source": "course",
+      "target": "第4章 基本接口实验",
+      "relation": "has_chapter"
+    },
+    {
+      "source": "course",
+      "target": "第5章 基本扩展实验",
+      "relation": "has_chapter"
+    },
+    {
+      "source": "course",
+      "target": "第6章 单片机综合设计A",
+      "relation": "has_chapter"
+    },
+    {
+      "source": "course",
+      "target": "第7章 单片机综合设计B",
+      "relation": "has_chapter"
+    },
+    {
+      "source": "course",
+      "target": "第8章 实验系统介绍",
+      "relation": "has_chapter"
+    },
+    {
+      "source": "course",
+      "target": "第9章 软件工具使用指南",
+      "relation": "has_chapter"
+    },
+    {
+      "source": "course",
+      "target": "第10章 C51简明教程",
+      "relation": "has_chapter"
+    },
+    {
+      "source": "course",
+      "target": "第11章 实验报告模板及要求",
+      "relation": "has_chapter"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "ref_codex_pa1",
+      "relation": "has_reference_code"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "hw_board1",
+      "relation": "uses_hardware"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "hw_board2",
+      "relation": "uses_hardware"
+    },
+    {
+      "source": "hw_board1",
+      "target": "hw_board2",
+      "relation": "interconnects_with",
+      "via": "hw_pa1_interconnect"
+    },
+    {
+      "source": "hw_board1",
+      "target": "adc0809_pins",
+      "relation": "contains_chip"
+    },
+    {
+      "source": "hw_board1",
+      "target": "74hc373_pins",
+      "relation": "contains_chip"
+    },
+    {
+      "source": "hw_board1",
+      "target": "74hc240_pins",
+      "relation": "contains_chip"
+    },
+    {
+      "source": "hw_board1",
+      "target": "74hc02_pins",
+      "relation": "contains_chip"
+    },
+    {
+      "source": "hw_board2",
+      "target": "i8255_pins",
+      "relation": "contains_chip"
+    },
+    {
+      "source": "hw_board2",
+      "target": "uln2003_pins",
+      "relation": "contains_chip"
+    },
+    {
+      "source": "hw_board2",
+      "target": "dht11_pins",
+      "relation": "contains_chip"
+    },
+    {
+      "source": "design_P-A-1#",
+      "target": "hw_pa1_interconnect",
+      "relation": "uses_interconnect"
+    },
+    {
+      "source": "course",
+      "target": "teacher_李晶",
+      "relation": "has_teacher"
+    },
+    {
+      "source": "course",
+      "target": "class_电231",
+      "relation": "has_class"
+    },
+    {
+      "source": "teacher_李晶",
+      "target": "class_电231",
+      "relation": "teaches"
+    }
+  ]
+}
