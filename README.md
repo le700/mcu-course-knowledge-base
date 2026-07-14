@@ -238,7 +238,8 @@ mcu-course-knowledge-base/
 ├── README.md                          # 本文件（Agent 使用指南）
 ├── requirements.txt                   # Python 依赖
 ├── .gitignore                         # Git 忽略规则
-├── P-A-1-Codex参考_README.md          # P-A-1# 温湿度检测系统参考文档
+├── build_fusion_rerank.py             # 知识图谱融合重排构建脚本
+│
 ├── octopus_hub/                       # 八爪鱼记忆中枢
 │   ├── __init__.py                    # 包入口，优雅降级导入
 │   ├── models.py                      # 数据模型 (Project, Persona, Memory, Session)
@@ -247,20 +248,70 @@ mcu-course-knowledge-base/
 │   ├── kg_adapter.py                  # 知识图谱适配器 (BFS, 依赖链)
 │   ├── hub_bridge.py                  # 桥接层 (统一查询路由)
 │   ├── hardware_parser.py             # 硬件文档解析器 (11 芯片)
+│   ├── hw_parser.py                   # 独立硬件解析器 (备用)
 │   ├── memory_vector_store.py         # 向量语义搜索 (ChromaDB)
 │   ├── reflection.py                  # 反思引擎 (规则 + TF-IDF)
 │   ├── handoff.py                     # 交接协议 (3 级深度)
 │   ├── integration.py                 # 集成层 (OctopusSystem)
 │   ├── cli.py                         # 命令行工具 (10 个命令)
 │   └── test_e2e.py                    # 端到端测试 (71 用例)
-└── rag_v4/                            # RAG v4 知识库（Agent 直接读取）
-    ├── knowledge_graph.json           # 知识图谱 (119 节点, 199 边)
-    ├── hardware_ref_pa1.md            # 硬件参考文档
-    ├── agent_tools.py                 # RAG 检索引擎
-    ├── chunks.pkl                     # 文本块
-    ├── keyword_index.pkl              # 关键词索引
-    ├── struct_index.json              # 结构化索引
-    └── test_rag.py                    # RAG 测试
+│
+├── rag_v4/                            # RAG v4 知识库（Agent 直接读取）
+│   ├── knowledge_graph.json           # 知识图谱 (119 节点, 199 边)
+│   ├── hardware_ref_pa1.md            # 硬件参考文档
+│   ├── agent_tools.py                 # RAG 检索引擎
+│   ├── chunks.pkl                     # 文本块
+│   ├── keyword_index.pkl              # 关键词索引
+│   ├── struct_index.json              # 结构化索引
+│   └── test_rag.py                    # RAG 测试
+│
+├── projects/                          # 课程设计项目（Agent 直接参考）
+│   ├── P-A-1源码参考/                  # P-A-1# 温湿度检测系统 (C源码 + 分步诊断)
+│   │   ├── 00_源码说明_先看我.txt       # 源码阅读指南
+│   │   ├── P-A-1-Codex参考_README.md   # 项目完整参考文档
+│   │   ├── common/                    # 公共驱动库 (adc0809, dht11, display, i8255, led, uart)
+│   │   ├── diagnostics/               # 9 个分步诊断程序
+│   │   ├── pa1_main/                  # 主程序 (Keil uVision 工程)
+│   │   └── step03~step09/             # 7 个渐进式学习步骤
+│   ├── P-A-3工程/                      # P-A-3# 多传感器数据采集系统
+│   │   ├── P-A-3_审查报告.md           # 项目审查报告
+│   │   ├── common/                    # 驱动库 (ds18b20, pcf8591, display, led, uart)
+│   │   ├── pa3_main/                  # 主程序 (Keil uVision 工程)
+│   │   └── sdcc/                      # SDCC 编译版本 (含 Makefile)
+│   └── P-B-5汇总/                      # P-B-5# 智能交通灯设计文档
+│       ├── 01_项目需求规格说明书.md
+│       ├── 02_硬件设计说明文档.md
+│       ├── 03_代码审查报告.md
+│       ├── 04_bug解决日志.md
+│       ├── 05_人机协作反思.md
+│       ├── 06_agent_mcp_skills.md
+│       ├── 07_软件流程图_mermaid.md
+│       └── 程序流程图.html
+│
+├── reports/                           # 分析报告和审计报告
+│   ├── analysis/                      # 13 篇深度分析报告
+│   │   ├── gap_analysis.md            # 差距分析
+│   │   ├── state_machine_analysis.md  # 状态机分析
+│   │   ├── performance_math.md        # 性能数学建模
+│   │   ├── hardware_pin_verify.md     # 硬件引脚验证
+│   │   ├── acceptance_check.md        # 验收检查
+│   │   ├── requirement_check.md       # 需求检查
+│   │   ├── full_cross_validation.md   # 全交叉验证
+│   │   └── deep_check_*.md            # 第2章深度检查 (4篇)
+│   └── audit/                         # 2 份 HTML 审计报告
+│       ├── pb5-full-audit/            # P-B-5 完整审计报告
+│       └── pa1-report-gap-analysis/   # P-A-1 报告差距分析
+│
+├── course_docs/                       # 课程文档
+│   ├── 知识库结构README.pdf            # 知识库结构说明
+│   ├── 任务书/                         # 课程任务书
+│   ├── 参考模板/                       # 实验报告模板 (5份 docx + 1份 md)
+│   └── 原理图/                         # CT107D 实验板原理图
+│
+└── rag_archive/                       # RAG 演进历史
+    ├── rag_v2/                        # v2: 关键词 + 向量检索
+    ├── rag_v3/                        # v3: 三层检索 + 结构化索引
+    └── rag_knowledge_base/            # v1: 原始知识库
 ```
 
 ---

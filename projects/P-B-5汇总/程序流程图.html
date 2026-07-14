@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>智能交通灯控制系统主程序流程图</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 28px;
+    background: #fff;
+    color: #000;
+    font-family: "Microsoft YaHei", "SimSun", sans-serif;
+  }
+  h1 {
+    margin: 0 0 18px 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .chart {
+    width: 820px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  svg {
+    display: block;
+    width: 820px;
+    height: 860px;
+    margin: 0 auto;
+    background: #fff;
+    border: 2px solid #000;
+  }
+  .caption {
+    margin-top: 8px;
+    font-size: 13px;
+  }
+  .box-text {
+    font-size: 15px;
+    fill: #000;
+    text-anchor: middle;
+    dominant-baseline: middle;
+  }
+  .small-text {
+    font-size: 13px;
+    fill: #000;
+    text-anchor: middle;
+  }
+  .label {
+    font-size: 13px;
+    fill: #000;
+  }
+  .shape {
+    fill: #fff;
+    stroke: #000;
+    stroke-width: 2;
+  }
+  .line {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1.5;
+  }
+</style>
+</head>
+<body>
+<h1>智能交通灯控制系统主程序流程图</h1>
+
+<div class="chart">
+<svg viewBox="0 0 820 860" xmlns="http://www.w3.org/2000/svg" aria-label="智能交通灯控制系统主程序流程图">
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#000"></polygon>
+    </marker>
+  </defs>
+
+  <!-- 开始 -->
+  <rect class="shape" x="330" y="30" width="160" height="46" rx="23"></rect>
+  <text class="box-text" x="410" y="53">开始</text>
+
+  <line class="line" x1="410" y1="76" x2="410" y2="112" marker-end="url(#arrow)"></line>
+
+  <!-- 系统初始化 -->
+  <rect class="shape" x="275" y="112" width="270" height="58"></rect>
+  <text class="box-text" x="410" y="134">SystemInit()</text>
+  <text class="small-text" x="410" y="156">端口、变量、OLED、初始相位</text>
+
+  <line class="line" x1="410" y1="170" x2="410" y2="208" marker-end="url(#arrow)"></line>
+
+  <!-- 定时器初始化 -->
+  <rect class="shape" x="275" y="208" width="270" height="58"></rect>
+  <text class="box-text" x="410" y="230">Timer0Init()</text>
+  <text class="small-text" x="410" y="252">启动 2ms 中断节拍</text>
+
+  <line class="line" x1="410" y1="266" x2="410" y2="304" marker-end="url(#arrow)"></line>
+
+  <!-- 主循环 -->
+  <rect class="shape" x="295" y="304" width="230" height="50"></rect>
+  <text class="box-text" x="410" y="329">进入 while(1) 主循环</text>
+
+  <line class="line" x1="410" y1="354" x2="410" y2="394" marker-end="url(#arrow)"></line>
+
+  <!-- 判断1 -->
+  <polygon class="shape" points="410,394 525,454 410,514 295,454"></polygon>
+  <text class="box-text" x="410" y="446">g_tick2ms</text>
+  <text class="box-text" x="410" y="468">!= 0 ?</text>
+
+  <!-- 判断1 是 -->
+  <line class="line" x1="525" y1="454" x2="592" y2="454" marker-end="url(#arrow)"></line>
+  <text class="label" x="550" y="444">是</text>
+
+  <rect class="shape" x="592" y="424" width="180" height="60"></rect>
+  <text class="small-text" x="682" y="447">关中断保护</text>
+  <text class="small-text" x="682" y="466">g_tick2ms--</text>
+
+  <line class="line" x1="682" y1="484" x2="682" y2="532" marker-end="url(#arrow)"></line>
+
+  <rect class="shape" x="592" y="532" width="180" height="68"></rect>
+  <text class="box-text" x="682" y="554">SystemTick2ms()</text>
+  <text class="small-text" x="682" y="576">按键 / 计时 / 灯控</text>
+
+  <!-- SystemTick2ms 返回到判断2上方公共点 -->
+  <path class="line" d="M592 566 L548 566 L548 632 L410 632" marker-end="url(#arrow)"></path>
+
+  <!-- 判断1 否 -->
+  <line class="line" x1="410" y1="514" x2="410" y2="632" marker-end="url(#arrow)"></line>
+  <text class="label" x="422" y="540">否</text>
+
+  <!-- 判断2 -->
+  <polygon class="shape" points="410,632 525,692 410,752 295,692"></polygon>
+  <text class="box-text" x="410" y="684">g_oledDue</text>
+  <text class="box-text" x="410" y="706">!= 0 ?</text>
+
+  <!-- 判断2 是 -->
+  <line class="line" x1="525" y1="692" x2="592" y2="692" marker-end="url(#arrow)"></line>
+  <text class="label" x="550" y="682">是</text>
+
+  <rect class="shape" x="592" y="662" width="180" height="60"></rect>
+  <text class="small-text" x="682" y="685">g_oledDue = 0</text>
+  <text class="small-text" x="682" y="704">OLED局部刷新</text>
+
+  <!-- OLED路径汇入返回框 -->
+  <path class="line" d="M682 722 L682 790 L525 790" marker-end="url(#arrow)"></path>
+
+  <!-- 判断2 否汇入返回框 -->
+  <line class="line" x1="410" y1="752" x2="410" y2="770" marker-end="url(#arrow)"></line>
+  <text class="label" x="422" y="764">否</text>
+
+  <rect class="shape" x="295" y="770" width="230" height="40"></rect>
+  <text class="box-text" x="410" y="790">返回主循环</text>
+
+  <!-- 返回主循环回环 -->
+  <path class="line" d="M295 790 L118 790 L118 329 L295 329" marker-end="url(#arrow)"></path>
+
+  <!-- 旁注 -->
+  <rect class="shape" x="42" y="420" width="178" height="92" stroke-dasharray="6 4"></rect>
+  <text class="small-text" x="131" y="445">Timer0 中断</text>
+  <text class="small-text" x="131" y="466">每 2ms 置位</text>
+  <text class="small-text" x="131" y="487">g_tick2ms</text>
+
+  <path class="line" d="M220 466 L260 466 L260 454 L295 454" stroke-dasharray="6 4"></path>
+</svg>
+<p class="caption">图1 主程序流程图</p>
+</div>
+
+</body>
+</html>

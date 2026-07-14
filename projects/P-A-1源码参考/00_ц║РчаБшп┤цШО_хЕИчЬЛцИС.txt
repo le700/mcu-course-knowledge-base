@@ -1,0 +1,23 @@
+﻿P-A-1 源码说明
+
+这个文件夹是发给同学检查/参考用的源码包。
+
+重点主程序：
+pa1_main/src/main.c
+common/dht11.c
+common/display.c
+common/adc0809.c
+common/i8255.c
+
+当前 DHT11 版本说明：
+1. DHT11 数据线：P3.3。
+2. ADC0809 EOC：P3.2。
+3. 8255 地址：0x0480。
+4. ADC0809 地址：0x4000。
+5. 没有默认 C25.00。
+6. 没有 last_good 假成功缓存。
+7. DHT11 成功后显示 Cxx.xx；如果小数字节异常大于 9，则显示 Cxx.00。
+8. DHT11 失败后显示错误/失败，不伪装成功。
+
+如果要重新编译：
+在 Keil 里打开对应 .uvproj / .uvprojx 工程，或在原工程环境下运行 build-all.ps1。

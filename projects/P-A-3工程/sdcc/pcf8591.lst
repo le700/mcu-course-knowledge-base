@@ -1,0 +1,595 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.0.0 #11528 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module pcf8591
+                                      6 	.optsdcc -mmcs51 --model-small
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _delay_us
+                                     12 	.globl _S6
+                                     13 	.globl _S5
+                                     14 	.globl _S4
+                                     15 	.globl _DQ
+                                     16 	.globl _SCL
+                                     17 	.globl _SDA
+                                     18 	.globl _TF2
+                                     19 	.globl _EXF2
+                                     20 	.globl _RCLK
+                                     21 	.globl _TCLK
+                                     22 	.globl _EXEN2
+                                     23 	.globl _TR2
+                                     24 	.globl _C_T2
+                                     25 	.globl _CP_RL2
+                                     26 	.globl _T2CON_7
+                                     27 	.globl _T2CON_6
+                                     28 	.globl _T2CON_5
+                                     29 	.globl _T2CON_4
+                                     30 	.globl _T2CON_3
+                                     31 	.globl _T2CON_2
+                                     32 	.globl _T2CON_1
+                                     33 	.globl _T2CON_0
+                                     34 	.globl _PT2
+                                     35 	.globl _ET2
+                                     36 	.globl _CY
+                                     37 	.globl _AC
+                                     38 	.globl _F0
+                                     39 	.globl _RS1
+                                     40 	.globl _RS0
+                                     41 	.globl _OV
+                                     42 	.globl _F1
+                                     43 	.globl _P
+                                     44 	.globl _PS
+                                     45 	.globl _PT1
+                                     46 	.globl _PX1
+                                     47 	.globl _PT0
+                                     48 	.globl _PX0
+                                     49 	.globl _RD
+                                     50 	.globl _WR
+                                     51 	.globl _T1
+                                     52 	.globl _T0
+                                     53 	.globl _INT1
+                                     54 	.globl _INT0
+                                     55 	.globl _TXD
+                                     56 	.globl _RXD
+                                     57 	.globl _P3_7
+                                     58 	.globl _P3_6
+                                     59 	.globl _P3_5
+                                     60 	.globl _P3_4
+                                     61 	.globl _P3_3
+                                     62 	.globl _P3_2
+                                     63 	.globl _P3_1
+                                     64 	.globl _P3_0
+                                     65 	.globl _EA
+                                     66 	.globl _ES
+                                     67 	.globl _ET1
+                                     68 	.globl _EX1
+                                     69 	.globl _ET0
+                                     70 	.globl _EX0
+                                     71 	.globl _P2_7
+                                     72 	.globl _P2_6
+                                     73 	.globl _P2_5
+                                     74 	.globl _P2_4
+                                     75 	.globl _P2_3
+                                     76 	.globl _P2_2
+                                     77 	.globl _P2_1
+                                     78 	.globl _P2_0
+                                     79 	.globl _SM0
+                                     80 	.globl _SM1
+                                     81 	.globl _SM2
+                                     82 	.globl _REN
+                                     83 	.globl _TB8
+                                     84 	.globl _RB8
+                                     85 	.globl _TI
+                                     86 	.globl _RI
+                                     87 	.globl _P1_7
+                                     88 	.globl _P1_6
+                                     89 	.globl _P1_5
+                                     90 	.globl _P1_4
+                                     91 	.globl _P1_3
+                                     92 	.globl _P1_2
+                                     93 	.globl _P1_1
+                                     94 	.globl _P1_0
+                                     95 	.globl _TF1
+                                     96 	.globl _TR1
+                                     97 	.globl _TF0
+                                     98 	.globl _TR0
+                                     99 	.globl _IE1
+                                    100 	.globl _IT1
+                                    101 	.globl _IE0
+                                    102 	.globl _IT0
+                                    103 	.globl _P0_7
+                                    104 	.globl _P0_6
+                                    105 	.globl _P0_5
+                                    106 	.globl _P0_4
+                                    107 	.globl _P0_3
+                                    108 	.globl _P0_2
+                                    109 	.globl _P0_1
+                                    110 	.globl _P0_0
+                                    111 	.globl _T2L
+                                    112 	.globl _T2H
+                                    113 	.globl _AUXR
+                                    114 	.globl _TH2
+                                    115 	.globl _TL2
+                                    116 	.globl _RCAP2H
+                                    117 	.globl _RCAP2L
+                                    118 	.globl _T2CON
+                                    119 	.globl _B
+                                    120 	.globl _ACC
+                                    121 	.globl _PSW
+                                    122 	.globl _IP
+                                    123 	.globl _P3
+                                    124 	.globl _IE
+                                    125 	.globl _P2
+                                    126 	.globl _SBUF
+                                    127 	.globl _SCON
+                                    128 	.globl _P1
+                                    129 	.globl _TH1
+                                    130 	.globl _TH0
+                                    131 	.globl _TL1
+                                    132 	.globl _TL0
+                                    133 	.globl _TMOD
+                                    134 	.globl _TCON
+                                    135 	.globl _PCON
+                                    136 	.globl _DPH
+                                    137 	.globl _DPL
+                                    138 	.globl _SP
+                                    139 	.globl _P0
+                                    140 	.globl _pcf8591_init
+                                    141 	.globl _pcf8591_read_adc
+                                    142 ;--------------------------------------------------------
+                                    143 ; special function registers
+                                    144 ;--------------------------------------------------------
+                                    145 	.area RSEG    (ABS,DATA)
+      000000                        146 	.org 0x0000
+                           000080   147 _P0	=	0x0080
+                           000081   148 _SP	=	0x0081
+                           000082   149 _DPL	=	0x0082
+                           000083   150 _DPH	=	0x0083
+                           000087   151 _PCON	=	0x0087
+                           000088   152 _TCON	=	0x0088
+                           000089   153 _TMOD	=	0x0089
+                           00008A   154 _TL0	=	0x008a
+                           00008B   155 _TL1	=	0x008b
+                           00008C   156 _TH0	=	0x008c
+                           00008D   157 _TH1	=	0x008d
+                           000090   158 _P1	=	0x0090
+                           000098   159 _SCON	=	0x0098
+                           000099   160 _SBUF	=	0x0099
+                           0000A0   161 _P2	=	0x00a0
+                           0000A8   162 _IE	=	0x00a8
+                           0000B0   163 _P3	=	0x00b0
+                           0000B8   164 _IP	=	0x00b8
+                           0000D0   165 _PSW	=	0x00d0
+                           0000E0   166 _ACC	=	0x00e0
+                           0000F0   167 _B	=	0x00f0
+                           0000C8   168 _T2CON	=	0x00c8
+                           0000CA   169 _RCAP2L	=	0x00ca
+                           0000CB   170 _RCAP2H	=	0x00cb
+                           0000CC   171 _TL2	=	0x00cc
+                           0000CD   172 _TH2	=	0x00cd
+                           00008E   173 _AUXR	=	0x008e
+                           0000D6   174 _T2H	=	0x00d6
+                           0000D7   175 _T2L	=	0x00d7
+                                    176 ;--------------------------------------------------------
+                                    177 ; special function bits
+                                    178 ;--------------------------------------------------------
+                                    179 	.area RSEG    (ABS,DATA)
+      000000                        180 	.org 0x0000
+                           000080   181 _P0_0	=	0x0080
+                           000081   182 _P0_1	=	0x0081
+                           000082   183 _P0_2	=	0x0082
+                           000083   184 _P0_3	=	0x0083
+                           000084   185 _P0_4	=	0x0084
+                           000085   186 _P0_5	=	0x0085
+                           000086   187 _P0_6	=	0x0086
+                           000087   188 _P0_7	=	0x0087
+                           000088   189 _IT0	=	0x0088
+                           000089   190 _IE0	=	0x0089
+                           00008A   191 _IT1	=	0x008a
+                           00008B   192 _IE1	=	0x008b
+                           00008C   193 _TR0	=	0x008c
+                           00008D   194 _TF0	=	0x008d
+                           00008E   195 _TR1	=	0x008e
+                           00008F   196 _TF1	=	0x008f
+                           000090   197 _P1_0	=	0x0090
+                           000091   198 _P1_1	=	0x0091
+                           000092   199 _P1_2	=	0x0092
+                           000093   200 _P1_3	=	0x0093
+                           000094   201 _P1_4	=	0x0094
+                           000095   202 _P1_5	=	0x0095
+                           000096   203 _P1_6	=	0x0096
+                           000097   204 _P1_7	=	0x0097
+                           000098   205 _RI	=	0x0098
+                           000099   206 _TI	=	0x0099
+                           00009A   207 _RB8	=	0x009a
+                           00009B   208 _TB8	=	0x009b
+                           00009C   209 _REN	=	0x009c
+                           00009D   210 _SM2	=	0x009d
+                           00009E   211 _SM1	=	0x009e
+                           00009F   212 _SM0	=	0x009f
+                           0000A0   213 _P2_0	=	0x00a0
+                           0000A1   214 _P2_1	=	0x00a1
+                           0000A2   215 _P2_2	=	0x00a2
+                           0000A3   216 _P2_3	=	0x00a3
+                           0000A4   217 _P2_4	=	0x00a4
+                           0000A5   218 _P2_5	=	0x00a5
+                           0000A6   219 _P2_6	=	0x00a6
+                           0000A7   220 _P2_7	=	0x00a7
+                           0000A8   221 _EX0	=	0x00a8
+                           0000A9   222 _ET0	=	0x00a9
+                           0000AA   223 _EX1	=	0x00aa
+                           0000AB   224 _ET1	=	0x00ab
+                           0000AC   225 _ES	=	0x00ac
+                           0000AF   226 _EA	=	0x00af
+                           0000B0   227 _P3_0	=	0x00b0
+                           0000B1   228 _P3_1	=	0x00b1
+                           0000B2   229 _P3_2	=	0x00b2
+                           0000B3   230 _P3_3	=	0x00b3
+                           0000B4   231 _P3_4	=	0x00b4
+                           0000B5   232 _P3_5	=	0x00b5
+                           0000B6   233 _P3_6	=	0x00b6
+                           0000B7   234 _P3_7	=	0x00b7
+                           0000B0   235 _RXD	=	0x00b0
+                           0000B1   236 _TXD	=	0x00b1
+                           0000B2   237 _INT0	=	0x00b2
+                           0000B3   238 _INT1	=	0x00b3
+                           0000B4   239 _T0	=	0x00b4
+                           0000B5   240 _T1	=	0x00b5
+                           0000B6   241 _WR	=	0x00b6
+                           0000B7   242 _RD	=	0x00b7
+                           0000B8   243 _PX0	=	0x00b8
+                           0000B9   244 _PT0	=	0x00b9
+                           0000BA   245 _PX1	=	0x00ba
+                           0000BB   246 _PT1	=	0x00bb
+                           0000BC   247 _PS	=	0x00bc
+                           0000D0   248 _P	=	0x00d0
+                           0000D1   249 _F1	=	0x00d1
+                           0000D2   250 _OV	=	0x00d2
+                           0000D3   251 _RS0	=	0x00d3
+                           0000D4   252 _RS1	=	0x00d4
+                           0000D5   253 _F0	=	0x00d5
+                           0000D6   254 _AC	=	0x00d6
+                           0000D7   255 _CY	=	0x00d7
+                           0000AD   256 _ET2	=	0x00ad
+                           0000BD   257 _PT2	=	0x00bd
+                           0000C8   258 _T2CON_0	=	0x00c8
+                           0000C9   259 _T2CON_1	=	0x00c9
+                           0000CA   260 _T2CON_2	=	0x00ca
+                           0000CB   261 _T2CON_3	=	0x00cb
+                           0000CC   262 _T2CON_4	=	0x00cc
+                           0000CD   263 _T2CON_5	=	0x00cd
+                           0000CE   264 _T2CON_6	=	0x00ce
+                           0000CF   265 _T2CON_7	=	0x00cf
+                           0000C8   266 _CP_RL2	=	0x00c8
+                           0000C9   267 _C_T2	=	0x00c9
+                           0000CA   268 _TR2	=	0x00ca
+                           0000CB   269 _EXEN2	=	0x00cb
+                           0000CC   270 _TCLK	=	0x00cc
+                           0000CD   271 _RCLK	=	0x00cd
+                           0000CE   272 _EXF2	=	0x00ce
+                           0000CF   273 _TF2	=	0x00cf
+                           0000A1   274 _SDA	=	0x00a1
+                           0000A0   275 _SCL	=	0x00a0
+                           000094   276 _DQ	=	0x0094
+                           0000B3   277 _S4	=	0x00b3
+                           0000B2   278 _S5	=	0x00b2
+                           0000B1   279 _S6	=	0x00b1
+                                    280 ;--------------------------------------------------------
+                                    281 ; overlayable register banks
+                                    282 ;--------------------------------------------------------
+                                    283 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        284 	.ds 8
+                                    285 ;--------------------------------------------------------
+                                    286 ; internal ram data
+                                    287 ;--------------------------------------------------------
+                                    288 	.area DSEG    (DATA)
+                                    289 ;--------------------------------------------------------
+                                    290 ; overlayable items in internal ram 
+                                    291 ;--------------------------------------------------------
+                                    292 ;--------------------------------------------------------
+                                    293 ; indirectly addressable internal ram data
+                                    294 ;--------------------------------------------------------
+                                    295 	.area ISEG    (DATA)
+                                    296 ;--------------------------------------------------------
+                                    297 ; absolute internal ram data
+                                    298 ;--------------------------------------------------------
+                                    299 	.area IABS    (ABS,DATA)
+                                    300 	.area IABS    (ABS,DATA)
+                                    301 ;--------------------------------------------------------
+                                    302 ; bit data
+                                    303 ;--------------------------------------------------------
+                                    304 	.area BSEG    (BIT)
+                                    305 ;--------------------------------------------------------
+                                    306 ; paged external ram data
+                                    307 ;--------------------------------------------------------
+                                    308 	.area PSEG    (PAG,XDATA)
+                                    309 ;--------------------------------------------------------
+                                    310 ; external ram data
+                                    311 ;--------------------------------------------------------
+                                    312 	.area XSEG    (XDATA)
+                                    313 ;--------------------------------------------------------
+                                    314 ; absolute external ram data
+                                    315 ;--------------------------------------------------------
+                                    316 	.area XABS    (ABS,XDATA)
+                                    317 ;--------------------------------------------------------
+                                    318 ; external initialized ram data
+                                    319 ;--------------------------------------------------------
+                                    320 	.area XISEG   (XDATA)
+                                    321 	.area HOME    (CODE)
+                                    322 	.area GSINIT0 (CODE)
+                                    323 	.area GSINIT1 (CODE)
+                                    324 	.area GSINIT2 (CODE)
+                                    325 	.area GSINIT3 (CODE)
+                                    326 	.area GSINIT4 (CODE)
+                                    327 	.area GSINIT5 (CODE)
+                                    328 	.area GSINIT  (CODE)
+                                    329 	.area GSFINAL (CODE)
+                                    330 	.area CSEG    (CODE)
+                                    331 ;--------------------------------------------------------
+                                    332 ; global & static initialisations
+                                    333 ;--------------------------------------------------------
+                                    334 	.area HOME    (CODE)
+                                    335 	.area GSINIT  (CODE)
+                                    336 	.area GSFINAL (CODE)
+                                    337 	.area GSINIT  (CODE)
+                                    338 ;--------------------------------------------------------
+                                    339 ; Home
+                                    340 ;--------------------------------------------------------
+                                    341 	.area HOME    (CODE)
+                                    342 	.area HOME    (CODE)
+                                    343 ;--------------------------------------------------------
+                                    344 ; code
+                                    345 ;--------------------------------------------------------
+                                    346 	.area CSEG    (CODE)
+                                    347 ;------------------------------------------------------------
+                                    348 ;Allocation info for local variables in function 'I2C_Start'
+                                    349 ;------------------------------------------------------------
+                                    350 ;	pcf8591.c:8: static void I2C_Start(void)
+                                    351 ;	-----------------------------------------
+                                    352 ;	 function I2C_Start
+                                    353 ;	-----------------------------------------
+      000000                        354 _I2C_Start:
+                           000007   355 	ar7 = 0x07
+                           000006   356 	ar6 = 0x06
+                           000005   357 	ar5 = 0x05
+                           000004   358 	ar4 = 0x04
+                           000003   359 	ar3 = 0x03
+                           000002   360 	ar2 = 0x02
+                           000001   361 	ar1 = 0x01
+                           000000   362 	ar0 = 0x00
+                                    363 ;	pcf8591.c:10: SDA = 1;
+                                    364 ;	assignBit
+      000000 D2 A1            [12]  365 	setb	_SDA
+                                    366 ;	pcf8591.c:11: SCL = 1;
+                                    367 ;	assignBit
+      000002 D2 A0            [12]  368 	setb	_SCL
+                                    369 ;	pcf8591.c:12: delay_us(5);
+      000004 90 00 05         [24]  370 	mov	dptr,#0x0005
+      000007 12r00r00         [24]  371 	lcall	_delay_us
+                                    372 ;	pcf8591.c:13: SDA = 0;
+                                    373 ;	assignBit
+      00000A C2 A1            [12]  374 	clr	_SDA
+                                    375 ;	pcf8591.c:14: delay_us(5);
+      00000C 90 00 05         [24]  376 	mov	dptr,#0x0005
+      00000F 12r00r00         [24]  377 	lcall	_delay_us
+                                    378 ;	pcf8591.c:15: SCL = 0;
+                                    379 ;	assignBit
+      000012 C2 A0            [12]  380 	clr	_SCL
+                                    381 ;	pcf8591.c:16: }
+      000014 22               [24]  382 	ret
+                                    383 ;------------------------------------------------------------
+                                    384 ;Allocation info for local variables in function 'I2C_Stop'
+                                    385 ;------------------------------------------------------------
+                                    386 ;	pcf8591.c:22: static void I2C_Stop(void)
+                                    387 ;	-----------------------------------------
+                                    388 ;	 function I2C_Stop
+                                    389 ;	-----------------------------------------
+      000015                        390 _I2C_Stop:
+                                    391 ;	pcf8591.c:24: SDA = 0;
+                                    392 ;	assignBit
+      000015 C2 A1            [12]  393 	clr	_SDA
+                                    394 ;	pcf8591.c:25: SCL = 1;
+                                    395 ;	assignBit
+      000017 D2 A0            [12]  396 	setb	_SCL
+                                    397 ;	pcf8591.c:26: delay_us(5);
+      000019 90 00 05         [24]  398 	mov	dptr,#0x0005
+      00001C 12r00r00         [24]  399 	lcall	_delay_us
+                                    400 ;	pcf8591.c:27: SDA = 1;
+                                    401 ;	assignBit
+      00001F D2 A1            [12]  402 	setb	_SDA
+                                    403 ;	pcf8591.c:28: delay_us(5);
+      000021 90 00 05         [24]  404 	mov	dptr,#0x0005
+                                    405 ;	pcf8591.c:29: }
+      000024 02r00r00         [24]  406 	ljmp	_delay_us
+                                    407 ;------------------------------------------------------------
+                                    408 ;Allocation info for local variables in function 'I2C_SendByte'
+                                    409 ;------------------------------------------------------------
+                                    410 ;dat                       Allocated to registers r7 
+                                    411 ;i                         Allocated to registers r6 
+                                    412 ;------------------------------------------------------------
+                                    413 ;	pcf8591.c:35: static void I2C_SendByte(u8 dat)
+                                    414 ;	-----------------------------------------
+                                    415 ;	 function I2C_SendByte
+                                    416 ;	-----------------------------------------
+      000027                        417 _I2C_SendByte:
+      000027 AF 82            [24]  418 	mov	r7,dpl
+                                    419 ;	pcf8591.c:39: for (i = 0; i < 8; i++) {
+      000029 7E 00            [12]  420 	mov	r6,#0x00
+      00002B                        421 00102$:
+                                    422 ;	pcf8591.c:40: SDA = dat >> 7;              /* 取最高位发送 */
+      00002B EF               [12]  423 	mov	a,r7
+      00002C 23               [12]  424 	rl	a
+      00002D 54 01            [12]  425 	anl	a,#0x01
+                                    426 ;	assignBit
+      00002F 24 FF            [12]  427 	add	a,#0xff
+      000031 92 A1            [24]  428 	mov	_SDA,c
+                                    429 ;	pcf8591.c:41: dat <<= 1;                   /* 左移准备下一位 */
+      000033 8F 05            [24]  430 	mov	ar5,r7
+      000035 ED               [12]  431 	mov	a,r5
+      000036 2D               [12]  432 	add	a,r5
+      000037 FF               [12]  433 	mov	r7,a
+                                    434 ;	pcf8591.c:42: SCL = 1;
+                                    435 ;	assignBit
+      000038 D2 A0            [12]  436 	setb	_SCL
+                                    437 ;	pcf8591.c:43: delay_us(5);
+      00003A 90 00 05         [24]  438 	mov	dptr,#0x0005
+      00003D C0 07            [24]  439 	push	ar7
+      00003F C0 06            [24]  440 	push	ar6
+      000041 12r00r00         [24]  441 	lcall	_delay_us
+                                    442 ;	pcf8591.c:44: SCL = 0;
+                                    443 ;	assignBit
+      000044 C2 A0            [12]  444 	clr	_SCL
+                                    445 ;	pcf8591.c:45: delay_us(2);
+      000046 90 00 02         [24]  446 	mov	dptr,#0x0002
+      000049 12r00r00         [24]  447 	lcall	_delay_us
+      00004C D0 06            [24]  448 	pop	ar6
+      00004E D0 07            [24]  449 	pop	ar7
+                                    450 ;	pcf8591.c:39: for (i = 0; i < 8; i++) {
+      000050 0E               [12]  451 	inc	r6
+      000051 BE 08 00         [24]  452 	cjne	r6,#0x08,00115$
+      000054                        453 00115$:
+      000054 40 D5            [24]  454 	jc	00102$
+                                    455 ;	pcf8591.c:49: SDA = 1;
+                                    456 ;	assignBit
+      000056 D2 A1            [12]  457 	setb	_SDA
+                                    458 ;	pcf8591.c:50: SCL = 1;
+                                    459 ;	assignBit
+      000058 D2 A0            [12]  460 	setb	_SCL
+                                    461 ;	pcf8591.c:51: delay_us(5);
+      00005A 90 00 05         [24]  462 	mov	dptr,#0x0005
+      00005D 12r00r00         [24]  463 	lcall	_delay_us
+                                    464 ;	pcf8591.c:52: SCL = 0;
+                                    465 ;	assignBit
+      000060 C2 A0            [12]  466 	clr	_SCL
+                                    467 ;	pcf8591.c:53: }
+      000062 22               [24]  468 	ret
+                                    469 ;------------------------------------------------------------
+                                    470 ;Allocation info for local variables in function 'I2C_ReadByte'
+                                    471 ;------------------------------------------------------------
+                                    472 ;i                         Allocated to registers r6 
+                                    473 ;dat                       Allocated to registers r5 
+                                    474 ;------------------------------------------------------------
+                                    475 ;	pcf8591.c:59: static u8 I2C_ReadByte(void)
+                                    476 ;	-----------------------------------------
+                                    477 ;	 function I2C_ReadByte
+                                    478 ;	-----------------------------------------
+      000063                        479 _I2C_ReadByte:
+                                    480 ;	pcf8591.c:61: u8 i, dat = 0;
+      000063 7F 00            [12]  481 	mov	r7,#0x00
+                                    482 ;	pcf8591.c:63: SDA = 1;                         /* 释放SDA，准备读取 */
+                                    483 ;	assignBit
+      000065 D2 A1            [12]  484 	setb	_SDA
+                                    485 ;	pcf8591.c:64: for (i = 0; i < 8; i++) {
+      000067 7E 00            [12]  486 	mov	r6,#0x00
+      000069                        487 00102$:
+                                    488 ;	pcf8591.c:65: dat <<= 1;                   /* 左移腾出最低位 */
+      000069 8F 05            [24]  489 	mov	ar5,r7
+      00006B ED               [12]  490 	mov	a,r5
+      00006C 2D               [12]  491 	add	a,r5
+      00006D FD               [12]  492 	mov	r5,a
+                                    493 ;	pcf8591.c:66: SCL = 1;
+                                    494 ;	assignBit
+      00006E D2 A0            [12]  495 	setb	_SCL
+                                    496 ;	pcf8591.c:67: delay_us(5);
+      000070 90 00 05         [24]  497 	mov	dptr,#0x0005
+      000073 C0 06            [24]  498 	push	ar6
+      000075 C0 05            [24]  499 	push	ar5
+      000077 12r00r00         [24]  500 	lcall	_delay_us
+      00007A D0 05            [24]  501 	pop	ar5
+      00007C D0 06            [24]  502 	pop	ar6
+                                    503 ;	pcf8591.c:68: dat |= SDA;                  /* 读取SDA电平 */
+      00007E A2 A1            [12]  504 	mov	c,_SDA
+      000080 E4               [12]  505 	clr	a
+      000081 33               [12]  506 	rlc	a
+      000082 4D               [12]  507 	orl	a,r5
+      000083 FF               [12]  508 	mov	r7,a
+                                    509 ;	pcf8591.c:69: SCL = 0;
+                                    510 ;	assignBit
+      000084 C2 A0            [12]  511 	clr	_SCL
+                                    512 ;	pcf8591.c:70: delay_us(2);
+      000086 90 00 02         [24]  513 	mov	dptr,#0x0002
+      000089 C0 07            [24]  514 	push	ar7
+      00008B C0 06            [24]  515 	push	ar6
+      00008D 12r00r00         [24]  516 	lcall	_delay_us
+      000090 D0 06            [24]  517 	pop	ar6
+      000092 D0 07            [24]  518 	pop	ar7
+                                    519 ;	pcf8591.c:64: for (i = 0; i < 8; i++) {
+      000094 0E               [12]  520 	inc	r6
+      000095 BE 08 00         [24]  521 	cjne	r6,#0x08,00117$
+      000098                        522 00117$:
+      000098 40 CF            [24]  523 	jc	00102$
+                                    524 ;	pcf8591.c:74: SDA = 1;
+                                    525 ;	assignBit
+      00009A D2 A1            [12]  526 	setb	_SDA
+                                    527 ;	pcf8591.c:75: SCL = 1;
+                                    528 ;	assignBit
+      00009C D2 A0            [12]  529 	setb	_SCL
+                                    530 ;	pcf8591.c:76: delay_us(5);
+      00009E 90 00 05         [24]  531 	mov	dptr,#0x0005
+      0000A1 C0 07            [24]  532 	push	ar7
+      0000A3 12r00r00         [24]  533 	lcall	_delay_us
+      0000A6 D0 07            [24]  534 	pop	ar7
+                                    535 ;	pcf8591.c:77: SCL = 0;
+                                    536 ;	assignBit
+      0000A8 C2 A0            [12]  537 	clr	_SCL
+                                    538 ;	pcf8591.c:79: return dat;
+      0000AA 8F 82            [24]  539 	mov	dpl,r7
+                                    540 ;	pcf8591.c:80: }
+      0000AC 22               [24]  541 	ret
+                                    542 ;------------------------------------------------------------
+                                    543 ;Allocation info for local variables in function 'pcf8591_init'
+                                    544 ;------------------------------------------------------------
+                                    545 ;	pcf8591.c:86: void pcf8591_init(void)
+                                    546 ;	-----------------------------------------
+                                    547 ;	 function pcf8591_init
+                                    548 ;	-----------------------------------------
+      0000AD                        549 _pcf8591_init:
+                                    550 ;	pcf8591.c:89: }
+      0000AD 22               [24]  551 	ret
+                                    552 ;------------------------------------------------------------
+                                    553 ;Allocation info for local variables in function 'pcf8591_read_adc'
+                                    554 ;------------------------------------------------------------
+                                    555 ;channel                   Allocated to registers r7 
+                                    556 ;val                       Allocated to registers r7 
+                                    557 ;------------------------------------------------------------
+                                    558 ;	pcf8591.c:105: u8 pcf8591_read_adc(u8 channel)
+                                    559 ;	-----------------------------------------
+                                    560 ;	 function pcf8591_read_adc
+                                    561 ;	-----------------------------------------
+      0000AE                        562 _pcf8591_read_adc:
+      0000AE AF 82            [24]  563 	mov	r7,dpl
+                                    564 ;	pcf8591.c:109: I2C_Start();                     /* 起始信号 */
+      0000B0 C0 07            [24]  565 	push	ar7
+      0000B2 12r00r00         [24]  566 	lcall	_I2C_Start
+                                    567 ;	pcf8591.c:110: I2C_SendByte(PCF8591_WRITE_ADDR);/* 发送写地址 0x90 */
+      0000B5 75 82 90         [24]  568 	mov	dpl,#0x90
+      0000B8 12r00r27         [24]  569 	lcall	_I2C_SendByte
+      0000BB D0 07            [24]  570 	pop	ar7
+                                    571 ;	pcf8591.c:111: I2C_SendByte(0x40 | channel);    /* 控制字: 使能DAC+自动增量+选择通道 */
+      0000BD 74 40            [12]  572 	mov	a,#0x40
+      0000BF 4F               [12]  573 	orl	a,r7
+      0000C0 F5 82            [12]  574 	mov	dpl,a
+      0000C2 12r00r27         [24]  575 	lcall	_I2C_SendByte
+                                    576 ;	pcf8591.c:112: I2C_Start();                     /* 重新起始 */
+      0000C5 12r00r00         [24]  577 	lcall	_I2C_Start
+                                    578 ;	pcf8591.c:113: I2C_SendByte(PCF8591_READ_ADDR); /* 发送读地址 0x91 */
+      0000C8 75 82 91         [24]  579 	mov	dpl,#0x91
+      0000CB 12r00r27         [24]  580 	lcall	_I2C_SendByte
+                                    581 ;	pcf8591.c:114: val = I2C_ReadByte();            /* 读取ADC转换结果 */
+      0000CE 12r00r63         [24]  582 	lcall	_I2C_ReadByte
+      0000D1 AF 82            [24]  583 	mov	r7,dpl
+                                    584 ;	pcf8591.c:115: I2C_Stop();                      /* 停止信号 */
+      0000D3 C0 07            [24]  585 	push	ar7
+      0000D5 12r00r15         [24]  586 	lcall	_I2C_Stop
+      0000D8 D0 07            [24]  587 	pop	ar7
+                                    588 ;	pcf8591.c:117: return val;
+      0000DA 8F 82            [24]  589 	mov	dpl,r7
+                                    590 ;	pcf8591.c:118: }
+      0000DC 22               [24]  591 	ret
+                                    592 	.area CSEG    (CODE)
+                                    593 	.area CONST   (CODE)
+                                    594 	.area XINIT   (CODE)
+                                    595 	.area CABS    (ABS,CODE)
