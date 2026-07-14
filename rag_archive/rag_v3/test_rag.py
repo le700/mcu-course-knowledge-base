@@ -113,7 +113,7 @@ if not found:
                 in_grading = True
             if in_grading:
                 print(f"       {line.strip()}")
-                if "李晶" in line:
+                if "某教师" in line:
                     break
 
 # -----------------------------------------------------------

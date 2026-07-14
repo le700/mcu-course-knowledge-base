@@ -17,7 +17,7 @@ This is the strict DHT11 diagnostic version:
 ## Recommended Burn Folder
 
 ```text
-C:\Users\28011\Desktop\DHT11严格诊断_现在烧这个
+C:\Users\user\Desktop\DHT11严格诊断_现在烧这个
 ```
 
 Recommended DHT11 order:

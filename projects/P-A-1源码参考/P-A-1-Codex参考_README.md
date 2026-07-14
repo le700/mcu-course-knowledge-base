@@ -438,7 +438,7 @@ pa1_main/pa1_main.uvproj
 它指向：
 
 ```text
-C:\Users\28011\Desktop\P-A-1-TempHumidity-Keil\pa1_main\pa1_main.uvproj
+C:\Users\user\Desktop\P-A-1-TempHumidity-Keil\pa1_main\pa1_main.uvproj
 ```
 
 如果手动打开 Keil：
@@ -453,7 +453,7 @@ C:\Users\28011\Desktop\P-A-1-TempHumidity-Keil\pa1_main\pa1_main.uvproj
 正式总程序 hex：
 
 ```text
-C:\Users\28011\Desktop\HEX_烧录用\07_pa1_main_总程序_最终正式版.hex
+C:\Users\user\Desktop\HEX_烧录用\07_pa1_main_总程序_最终正式版.hex
 ```
 
 短路径备份：
@@ -557,13 +557,13 @@ STC89C54RD+ 可能把低地址 MOVX 区域映射到片内扩展 RAM。使用 `0x
 平时只看这个工程：
 
 ```text
-C:\Users\28011\Desktop\P-A-1-TempHumidity-Keil\pa1_main\pa1_main.uvproj
+C:\Users\user\Desktop\P-A-1-TempHumidity-Keil\pa1_main\pa1_main.uvproj
 ```
 
 平时只烧这个 hex：
 
 ```text
-C:\Users\28011\Desktop\HEX_烧录用\07_pa1_main_总程序_最终正式版.hex
+C:\Users\user\Desktop\HEX_烧录用\07_pa1_main_总程序_最终正式版.hex
 ```
 
 刚打开 Keil 不知道从哪里看时，先看：

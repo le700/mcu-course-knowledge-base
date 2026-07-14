@@ -127,7 +127,7 @@
 ## 四、Skill 文件位置
 
 ```
-C:\Users\11349\.claude\skills\
+C:\Users\user\.claude\skills\
 ├── flowchart-style-guide\
 │   └── SKILL.md
 ├── monochrome-report-docs\
